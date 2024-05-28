@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.LungXcan" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#1A6B52</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondaryContainer">#CEE9DB</item>
+        <item name="colorOnSecondaryContainer">#082017</item>
+        <item name="colorError">#BA1A1A</item>
+        <item name="colorPrimaryInverse">#8AD6B7</item>
+        <item name="colorSurface">#F5FBF6</item>
+        <item name="colorSurfaceContainer">#E9EFEA</item>
+    </style>
+
+    <style name="Theme.LungXcan" parent="Base.Theme.LungXcan" />
+
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">#1A6B52</item>
+    </style>
+</resources>
