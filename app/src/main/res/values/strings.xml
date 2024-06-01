@@ -13,4 +13,7 @@
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
     <string name="analyze">Analyze</string>
+    <string name="result">Result</string>
+    <string name="article_thumbnail">Article Thumbnail</string>
+    <string name="hospital_image">Hospital image</string>
 </resources>
