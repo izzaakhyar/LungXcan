@@ -32,6 +32,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_result_probability"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
@@ -41,6 +42,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_diagnose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -48,6 +50,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/tv_result_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="27dp"
@@ -57,16 +60,17 @@ We recommend consulting a doctor immediately. "
             android:textSize="13sp" />
 
         <TextView
+            android:id="@+id/tv_recommend_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:paddingHorizontal="15dp"
+            android:text="Nearby Hospitals"
             android:textSize="25sp"
-            android:textStyle="bold"
-            tools:text="Nearby Hospitals" />
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_hospital"
+            android:id="@+id/rv_recommend"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/item_hospital" />
