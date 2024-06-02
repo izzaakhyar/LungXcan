@@ -23,7 +23,7 @@ class ResultBottomSheet : BottomSheetDialogFragment() {
     ): View {
         _binding = ResultBottomSheetBinding.inflate(inflater, container, false)
         val layoutManager = LinearLayoutManager(requireActivity())
-        binding.rvHospital.layoutManager = layoutManager
+        binding.rvRecommend.layoutManager = layoutManager
         return binding.root
     }
 
@@ -47,10 +47,10 @@ class ResultBottomSheet : BottomSheetDialogFragment() {
 
         if (result == 1) {
             hospitalAdapter.submitList(hospitals)
-            binding.rvHospital.adapter = hospitalAdapter
+            binding.rvRecommend.adapter = hospitalAdapter
         } else {
             articleAdapter.submitList(articles)
-            binding.rvHospital.adapter = articleAdapter
+            binding.rvRecommend.adapter = articleAdapter
         }
     }
 
