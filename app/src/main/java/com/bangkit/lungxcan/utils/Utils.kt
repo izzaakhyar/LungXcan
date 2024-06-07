@@ -1,4 +1,4 @@
-package com.bangkit.lungxcan
+package com.bangkit.lungxcan.utils
 
 import android.content.ContentValues
 import android.content.Context
@@ -11,6 +11,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
+import com.bangkit.lungxcan.BuildConfig
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
