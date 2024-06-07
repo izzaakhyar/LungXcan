@@ -1,6 +1,9 @@
 package com.bangkit.lungxcan.data.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.RawValue
 
 data class ArticleResponse(
 
@@ -14,6 +17,7 @@ data class ArticleResponse(
 	val status: String? = null
 )
 
+@Parcelize
 data class Source(
 
 	@field:SerializedName("name")
@@ -21,8 +25,9 @@ data class Source(
 
 	@field:SerializedName("id")
 	val id: String? = null
-)
+): Parcelable
 
+@Parcelize
 data class ArticlesItem(
 
 	@field:SerializedName("publishedAt")
@@ -48,4 +53,4 @@ data class ArticlesItem(
 
 	@field:SerializedName("content")
 	val content: String? = null
-)
+): Parcelable

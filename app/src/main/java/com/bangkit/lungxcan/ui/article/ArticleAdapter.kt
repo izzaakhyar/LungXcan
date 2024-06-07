@@ -1,6 +1,7 @@
 package com.bangkit.lungxcan.ui.article
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -41,6 +42,12 @@ class ArticleAdapter : ListAdapter<ArticlesItem, ArticleAdapter.ListViewHolder>(
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val articles = getItem(position)
         holder.bind(articles)
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, ArticleDetailActivity::class.java)
+            intent.putExtra(ArticleDetailActivity.ID_ARTICLE, articles)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     companion object {
