@@ -16,9 +16,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
+        //nearbysearch/json
         buildConfigField("String", "BASE_URL", "\"https://newsapi.org/v2/\"")
+        buildConfigField("String", "BASE_MAP_URL", "\"https://maps.googleapis.com/maps/api/place/\"")
         buildConfigField("String", "API_KEY", "\"ea5bb10b6a974d6588bd718bd736b322\"")
+        buildConfigField("String", "MAP_API_KEY", "\"AIzaSyB8Ht_I_ly42qypIlffVuoZWAQiKSY-JSg\"")
     }
 
     buildTypes {
@@ -64,4 +66,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation("com.google.android.gms:play-services-maps:18.0.0")
+    implementation("com.google.android.gms:play-services-location:18.0.0")
 }
