@@ -5,14 +5,20 @@ import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.lungxcan.databinding.ActivityMainBinding
+import com.bangkit.lungxcan.ui.setting.SettingPreferences
+import com.bangkit.lungxcan.ui.setting.SettingViewModel
+import com.bangkit.lungxcan.ui.setting.SettingViewModelFactory
+import com.bangkit.lungxcan.ui.setting.dataStore
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,10 +46,26 @@ class MainActivity : AppCompatActivity() {
 //        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        val pref = SettingPreferences.getInstance(application.dataStore)
+        val settingViewModel =
+            ViewModelProvider(this, SettingViewModelFactory(pref))[SettingViewModel::class.java]
+
+        setThemeSetting(settingViewModel)
+
         supportActionBar?.title = when (View.NO_ID) {
             R.id.navigation_article -> getString(R.string.title_article)
             else -> {
                 getString(R.string.app_name)
+            }
+        }
+    }
+
+    private fun setThemeSetting(settingViewModel: SettingViewModel) {
+        settingViewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
+            if (isDarkModeActive) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
     }

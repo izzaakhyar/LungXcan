@@ -1,6 +1,7 @@
 package com.bangkit.lungxcan.ui.article
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.view.View

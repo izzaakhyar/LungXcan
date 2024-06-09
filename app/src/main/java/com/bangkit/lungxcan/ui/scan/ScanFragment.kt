@@ -2,6 +2,7 @@ package com.bangkit.lungxcan.ui.scan
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -161,10 +163,20 @@ class ScanFragment : Fragment() {
 
     private fun updateAnalyzeButtonState() {
         if (currentImageUri != null) {
-            binding.apply {
-                btnAnalyze.isEnabled = true
-                btnAnalyze.setBackgroundColor(resources.getColor(R.color.green))
-                btnAnalyze.setTextColor(resources.getColor(R.color.white))
+            binding.btnAnalyze.isEnabled = true
+            when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+                Configuration.UI_MODE_NIGHT_YES -> {
+                    binding.apply {
+                        btnAnalyze.setBackgroundColor(resources.getColor(R.color.colorPrimary))
+                        btnAnalyze.setTextColor(resources.getColor(R.color.colorOnPrimary))
+                    }
+                }
+                Configuration.UI_MODE_NIGHT_NO -> {
+                    binding.apply {
+                        btnAnalyze.setBackgroundColor(resources.getColor(R.color.green))
+                        btnAnalyze.setTextColor(resources.getColor(R.color.white))
+                    }
+                }
             }
         }
     }

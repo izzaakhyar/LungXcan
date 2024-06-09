@@ -11,6 +11,7 @@
         <item name="colorPrimaryInverse">#8AD6B7</item>
         <item name="colorSurface">#F5FBF6</item>
         <item name="colorSurfaceContainer">#E9EFEA</item>
+        <item name="colorSurfaceContainerHighest">#DEE4DF</item>
     </style>
 
     <style name="Theme.LungXcan" parent="Base.Theme.LungXcan" />
@@ -19,3 +20,4 @@
         <item name="android:color">#1A6B52</item>
     </style>
 </resources>
+

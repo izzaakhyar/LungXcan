@@ -17,7 +17,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        //nearbysearch/json
+
         buildConfigField("String", "BASE_URL", "\"https://newsapi.org/v2/\"")
         buildConfigField("String", "BASE_MAP_URL", "\"https://maps.googleapis.com/maps/api/place/\"")
         buildConfigField("String", "API_KEY", "\"ea5bb10b6a974d6588bd718bd736b322\"")
@@ -58,6 +58,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.exifinterface)
+    implementation(libs.androidx.datastore.core.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
