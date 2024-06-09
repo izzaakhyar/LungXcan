@@ -1,10 +1,9 @@
 package com.bangkit.lungxcan.data.repository
 
-import androidx.constraintlayout.motion.utils.ViewState
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.bangkit.lungxcan.data.ResultState
-import com.bangkit.lungxcan.data.api.ApiConfig
+import com.bangkit.lungxcan.data.api.ArticleApiConfig
 import com.bangkit.lungxcan.data.response.ArticleResponse
 import com.bangkit.lungxcan.data.response.ArticlesItem
 import retrofit2.Call
@@ -17,7 +16,7 @@ class ArticleRepository {
 
         data.value = ResultState.Loading
 
-        val client = ApiConfig.getApiService().getLungHealthArticle("Lung health", "popularity")
+        val client = ArticleApiConfig.getApiService().getLungHealthArticle("Lung health", "popularity")
         client.enqueue(object : Callback<ArticleResponse> {
             override fun onResponse(
                 call: Call<ArticleResponse>,

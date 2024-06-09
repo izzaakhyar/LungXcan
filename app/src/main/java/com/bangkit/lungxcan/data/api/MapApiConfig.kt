@@ -1,32 +1,24 @@
 package com.bangkit.lungxcan.data.api
 
-import com.bangkit.lungxcan.BuildConfig.API_KEY
-import com.bangkit.lungxcan.BuildConfig.BASE_URL
-import okhttp3.Interceptor
+import com.bangkit.lungxcan.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 
-object ApiConfig {
-    fun getApiService(): ApiService {
+object MapApiConfig {
+    fun getMapApi(): MapApiService {
         val loggingInterceptor =
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-        val authInterceptor = Interceptor { chain ->
-            val req = chain.request()
-            val requestHeaders =
-                req.newBuilder().addHeader("X-Api-Key", API_KEY).build()
-            chain.proceed(requestHeaders)
-        }
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-            .addInterceptor(authInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BASE_MAP_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
-        return retrofit.create(ApiService::class.java)
+        return retrofit.create(MapApiService::class.java)
     }
 }

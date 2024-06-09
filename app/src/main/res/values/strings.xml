@@ -24,4 +24,5 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
     </string>
     <string name="share">Share</string>
     <string name="read_more">READ MORE</string>
+    <string name="open_in_maps">Open in maps</string>
 </resources>

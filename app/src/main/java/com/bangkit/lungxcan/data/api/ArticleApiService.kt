@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface ApiService {
+interface ArticleApiService {
     @GET("everything")
     fun getLungHealthArticle(
         @Query("q") q: String = "Lung health",
