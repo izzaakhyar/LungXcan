@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.databinding.FragmentSettingBinding
+import com.google.android.material.textfield.MaterialAutoCompleteTextView
 
 class SettingFragment : Fragment() {
 
@@ -29,6 +32,7 @@ class SettingFragment : Fragment() {
         val pref = SettingPreferences.getInstance(requireContext().dataStore)
         val settingViewModel =
             ViewModelProvider(this, SettingViewModelFactory(pref))[SettingViewModel::class.java]
+
         settingViewModel.getThemeSettings()
             .observe(viewLifecycleOwner) { isDarkModeActive: Boolean ->
                 if (isDarkModeActive) {
@@ -41,10 +45,14 @@ class SettingFragment : Fragment() {
                     binding.iconTheme.setImageResource(R.drawable.ic_light_mode_24)
                 }
             }
+
         binding.switchTheme.setOnCheckedChangeListener { buttonView, isChecked: Boolean ->
             settingViewModel.saveThemeSetting(isChecked)
         }
 
+        settingViewModel.languages.observe(viewLifecycleOwner) { items ->
+            (binding.autoComplete as? MaterialAutoCompleteTextView)?.setSimpleItems(items)
+        }
 
     }
 

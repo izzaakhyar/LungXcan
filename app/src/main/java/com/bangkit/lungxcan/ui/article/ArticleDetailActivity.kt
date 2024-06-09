@@ -13,6 +13,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.data.response.ArticlesItem
 import com.bangkit.lungxcan.databinding.ActivityArticleDetailBinding
+import com.bangkit.lungxcan.utils.DateFormatter
+import com.bangkit.lungxcan.utils.truncated
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -39,7 +41,7 @@ class ArticleDetailActivity : AppCompatActivity() {
 
         if (detail != null) {
             binding.apply {
-                tvContentDate.text = detail.publishedAt
+                tvContentDate.text = detail.publishedAt?.let { DateFormatter.formatDate(it) }
                 tvContentTitle.text = detail.title
                 tvAuthor.text = detail.author
                 shareArticle.setOnClickListener {
@@ -52,7 +54,7 @@ class ArticleDetailActivity : AppCompatActivity() {
                             .error(R.drawable.ic_error_24)
                     )
                     .into(ivContentImage)
-                tvArticleContent.text = detail.content
+                tvArticleContent.text = detail.content?.truncated() ?: "There is no content here"
             }
         }
 

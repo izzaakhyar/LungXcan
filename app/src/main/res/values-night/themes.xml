@@ -5,7 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="colorPrimary">#8AD6B7</item>
         <item name="colorOnPrimary">#003828</item>
-        <item name="colorSecondaryContainer">#CEE9DB</item>
+        <item name="colorSecondaryContainer">#354C42</item>
         <item name="colorOnSecondaryContainer">#CEE9DB</item>
         <item name="colorError">#BA1A1A</item>
         <item name="colorPrimaryInverse">#1A6B52</item>

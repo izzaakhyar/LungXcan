@@ -1,0 +1,7 @@
+<TextView android:layout_width="match_parent"
+    android:id="@+id/textViewLang"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+    android:text="English"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -106,3 +106,7 @@ fun rotateImage(source: Bitmap, angle: Float): Bitmap {
         source, 0, 0, source.width, source.height, matrix, true
     )
 }
+
+fun String.truncated(): String {
+    return if (this.length > 200) this.substring(0, 200) else this
+}

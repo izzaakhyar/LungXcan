@@ -20,10 +20,30 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="16dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_bar">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:startIconDrawable="@drawable/ic_language_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/autoComplete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Language"
+                    android:text="English"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -32,8 +52,8 @@
 
             <ImageView
                 android:id="@+id/icon_theme"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -44,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:text="Enable Dark Mode"
                 android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:paddingHorizontal="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/switch_theme"
@@ -61,35 +81,4 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </TableLayout>
-
-    <!--    <RelativeLayout-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/app_bar">-->
-<!--        -->
-<!--        <com.google.android.material.card.MaterialCardView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:cardCornerRadius="0dp">-->
-
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="EnableDarkMode"-->
-<!--                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"-->
-<!--        </com.google.android.material.card.MaterialCardView>-->
-
-<!--&lt;!&ndash;        <com.google.android.material.switchmaterial.SwitchMaterial&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/switch_theme"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_alignParentEnd="true"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginTop="52dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginEnd="363dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintTop_toBottomOf="@+id/app_bar" />&ndash;&gt;-->
-<!--    </RelativeLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

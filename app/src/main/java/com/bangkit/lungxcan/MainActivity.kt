@@ -30,6 +30,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+        val pref = SettingPreferences.getInstance(application.dataStore)
+        val settingViewModel =
+            ViewModelProvider(this, SettingViewModelFactory(pref))[SettingViewModel::class.java]
+
+        setThemeSetting(settingViewModel)
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
@@ -45,12 +50,6 @@ class MainActivity : AppCompatActivity() {
 //
 //        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        val pref = SettingPreferences.getInstance(application.dataStore)
-        val settingViewModel =
-            ViewModelProvider(this, SettingViewModelFactory(pref))[SettingViewModel::class.java]
-
-        setThemeSetting(settingViewModel)
 
         supportActionBar?.title = when (View.NO_ID) {
             R.id.navigation_article -> getString(R.string.title_article)
