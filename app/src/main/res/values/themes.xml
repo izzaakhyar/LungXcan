@@ -12,6 +12,7 @@
         <item name="colorSurface">#F5FBF6</item>
         <item name="colorSurfaceContainer">#E9EFEA</item>
         <item name="colorSurfaceContainerHighest">#DEE4DF</item>
+        <item name="cardBackgroundColor">#d3e4dc</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
