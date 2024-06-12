@@ -11,11 +11,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.lungxcan.ViewModelFactory
+import com.bangkit.lungxcan.data.DummyHistory
 import com.bangkit.lungxcan.data.ResultState
 import com.bangkit.lungxcan.data.response.ArticlesItem
 import com.bangkit.lungxcan.databinding.FragmentHomeBinding
 import com.bangkit.lungxcan.ui.article.ArticleAdapter
 import com.bangkit.lungxcan.ui.article.ArticleViewModel
+import com.bangkit.lungxcan.ui.history.HistoryAdapter
+import com.bangkit.lungxcan.ui.history.HistoryFragment
 import com.google.android.material.carousel.CarouselLayoutManager
 import com.google.android.material.carousel.CarouselSnapHelper
 
@@ -42,8 +45,10 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
-        binding.rvArticle.layoutManager = layoutManager
+        val articleLayoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        val historyLayoutManager = LinearLayoutManager(requireActivity())
+        binding.rvArticle.layoutManager = articleLayoutManager
+        binding.rvScanHistory.layoutManager = historyLayoutManager
 
         return root
     }
@@ -69,6 +74,21 @@ class HomeFragment : Fragment() {
         }
 
         articleViewModel.getArticle()
+
+        val histories = mutableListOf<DummyHistory>()
+//        for (i in 0..10) {
+//            val data = DummyHistory(80, "Lung Cancer", "24 Juni 2024")
+//            histories.add(data)
+//        }
+
+        if (histories.isEmpty()) {
+            binding.rvScanHistory.visibility = View.GONE
+            binding.tvEmptyText.visibility = View.VISIBLE
+        } else {
+            val historyAdapter = HistoryAdapter()
+            historyAdapter.submitList(histories)
+            binding.rvScanHistory.adapter = historyAdapter
+        }
     }
 
     private fun setArticleData(result: List<ArticlesItem>) {
