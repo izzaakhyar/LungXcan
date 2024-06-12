@@ -44,6 +44,7 @@ class SettingFragment : Fragment() {
                     binding.switchTheme.isChecked = false
                     binding.iconTheme.setImageResource(R.drawable.ic_light_mode_24)
                 }
+                fromSetting = true
             }
 
         binding.switchTheme.setOnCheckedChangeListener { buttonView, isChecked: Boolean ->
@@ -56,5 +57,7 @@ class SettingFragment : Fragment() {
 
     }
 
-    companion object
+    companion object {
+        var fromSetting = false
+    }
 }

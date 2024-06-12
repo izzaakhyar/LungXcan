@@ -1,42 +1,41 @@
 package com.bangkit.lungxcan
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.lungxcan.databinding.ActivityMainBinding
+import com.bangkit.lungxcan.ui.setting.SettingFragment
 import com.bangkit.lungxcan.ui.setting.SettingPreferences
 import com.bangkit.lungxcan.ui.setting.SettingViewModel
 import com.bangkit.lungxcan.ui.setting.SettingViewModelFactory
 import com.bangkit.lungxcan.ui.setting.dataStore
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-   // val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val fromSet = SettingFragment.fromSetting
+
+        if (!fromSet) {
+            val isDarkModeActive = intent.getBooleanExtra("isDarkModeActive", false)
+
+            if (isDarkModeActive) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
+
         super.onCreate(savedInstanceState)
 
-//        setContentView(R.layout.activity_main)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val pref = SettingPreferences.getInstance(application.dataStore)
-        val settingViewModel =
-            ViewModelProvider(this, SettingViewModelFactory(pref))[SettingViewModel::class.java]
-
-        setThemeSetting(settingViewModel)
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
@@ -59,6 +58,12 @@ class MainActivity : AppCompatActivity() {
                 getString(R.string.app_name)
             }
         }
+
+        val pref = SettingPreferences.getInstance(application.dataStore)
+        val settingViewModel =
+            ViewModelProvider(this, SettingViewModelFactory(pref))[SettingViewModel::class.java]
+
+        setThemeSetting(settingViewModel)
     }
 
     private fun setThemeSetting(settingViewModel: SettingViewModel) {
