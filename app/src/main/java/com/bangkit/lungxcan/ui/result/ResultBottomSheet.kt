@@ -12,6 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.ViewModelFactory
 import com.bangkit.lungxcan.data.HospitalRequest
 import com.bangkit.lungxcan.data.ResultState
@@ -19,10 +20,12 @@ import com.bangkit.lungxcan.data.response.ArticlesItem
 import com.bangkit.lungxcan.databinding.ResultBottomSheetBinding
 import com.bangkit.lungxcan.ui.article.ArticleAdapter
 import com.bangkit.lungxcan.ui.article.ArticleViewModel
+import com.bumptech.glide.Glide
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import java.text.NumberFormat
 
 class ResultBottomSheet : BottomSheetDialogFragment() {
 
@@ -57,26 +60,48 @@ class ResultBottomSheet : BottomSheetDialogFragment() {
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 
-        getLocation()
+        val disease = requireArguments().getString("disease")
+        val score = requireArguments().getFloat("score")
 
-//        articleViewModel.getArticle()
-//
-//        articleViewModel.article.observe(viewLifecycleOwner) { result ->
-//            when (result) {
-//                is ResultState.Loading -> {
-//                    showLoading(true)
-//                }
-//
-//                is ResultState.Success -> {
-//                    showLoading(false)
-//                    setArticleData(result.data)
-//                }
-//
-//                is ResultState.Error -> {
-//                    showLoading(false)
-//                }
-//            }
-//        }
+        binding.tvResultProbability.text = NumberFormat.getPercentInstance().format(score).trim()
+        binding.tvDiagnose.text = "probability of $disease"
+
+        when {
+            (score > 0.5 && disease != "NORMAL") || (score < 0.5 && disease == "NORMAL") -> {
+
+                getLocation()
+
+                binding.tvResultProbability.setTextColor(resources.getColor(R.color.colorError))
+                binding.tvResultDesc.text = getString(R.string.result_high)
+                binding.tvRecommendTitle.text = getString(R.string.recommend_title_high)
+            }
+
+            (score < 0.5 && disease != "NORMAL") || (score > 0.5 && disease == "NORMAL") -> {
+
+                binding.tvResultProbability.setTextColor(resources.getColor(R.color.green))
+                binding.tvResultDesc.text = getString(R.string.result_low)
+                binding.tvRecommendTitle.text = getString(R.string.recommend_title_low)
+
+                articleViewModel.getArticle()
+
+                articleViewModel.article.observe(viewLifecycleOwner) { result ->
+                    when (result) {
+                        is ResultState.Loading -> {
+                            showLoading(true)
+                        }
+
+                        is ResultState.Success -> {
+                            showLoading(false)
+                            setArticleData(result.data)
+                        }
+
+                        is ResultState.Error -> {
+                            showLoading(false)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private val requestPermissionLauncher =

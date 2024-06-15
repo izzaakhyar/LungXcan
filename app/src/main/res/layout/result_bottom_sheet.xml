@@ -37,17 +37,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
             android:gravity="center"
-            android:text="80%"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="80%" />
 
         <TextView
             android:id="@+id/tv_diagnose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="probability of Lung Cancer"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:text="probability of Lung Cancer" />
 
         <TextView
             android:id="@+id/tv_result_desc"
@@ -55,9 +55,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="27dp"
             android:paddingHorizontal="5dp"
-            android:text="The analysis indicates a high probability of lung disease.
-We recommend consulting a doctor immediately. "
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            tools:text="@string/result_high" />
 
         <TextView
             android:id="@+id/tv_recommend_title"
@@ -66,9 +65,9 @@ We recommend consulting a doctor immediately. "
             android:layout_marginTop="30dp"
             android:layout_marginBottom="10dp"
             android:paddingHorizontal="15dp"
-            android:text="Nearby Hospitals"
             android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Nearby Hospitals" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

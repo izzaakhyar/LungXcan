@@ -16,11 +16,21 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.databinding.FragmentScanBinding
 import com.bangkit.lungxcan.databinding.ResultBottomSheetBinding
+//import com.bangkit.lungxcan.helper.ImageClassificationHelper
+import com.bangkit.lungxcan.helper.ImageClassifierHelper
+//import com.bangkit.lungxcan.helper.ImageClassifierHelper
 import com.bangkit.lungxcan.utils.getImageUri
 import com.bangkit.lungxcan.ui.result.ResultBottomSheet
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.tensorflow.lite.task.vision.classifier.Classifications
+//import org.tensorflow.lite.task.vision.classifier.Classifications
+import java.text.NumberFormat
 import kotlin.random.Random
 
 class ScanFragment : Fragment() {
@@ -89,7 +99,14 @@ class ScanFragment : Fragment() {
             btnGallery.setOnClickListener {
                 startGallery()
             }
-            btnAnalyze.setOnClickListener { analyzeImage() }
+            btnAnalyze.setOnClickListener {
+                currentImageUri?.let {
+                    binding.progressCircular.visibility = View.VISIBLE
+                    analyzeImage(it)
+                } ?: run {
+                    showToast(getString(R.string.analyze)) // change later
+                }
+            }
 
         }
 
@@ -135,31 +152,80 @@ class ScanFragment : Fragment() {
         }
     }
 
-    private fun analyzeImage() {
-        // TODO: Analyzing chosen image.
+    private fun analyzeImage(uri: Uri) {
         binding.progressCircular.visibility = View.VISIBLE
 
-        val resultBottomSheet = ResultBottomSheet()
-        resultBottomSheet.show(childFragmentManager, ResultBottomSheet.TAG)
+        lifecycleScope.launch {
+            val helper = ImageClassifierHelper(
+                context = requireContext(),
+                classifierListener = object : ImageClassifierHelper.ClassifierListener {
+                    override fun onError(error: String) {
+                        lifecycleScope.launch(Dispatchers.Main) {
+                            binding.progressCircular.visibility = View.GONE
+                            showToast(error)
+                        }
+                    }
 
-        val randomDummyResult = Random.nextInt(0, 1)
-        // Use a handler to delay the showing of the bottom sheet
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            // Generate a random dummy result
+                    override fun onResults(results: List<ImageClassifierHelper.Classifications>?) {
+                        lifecycleScope.launch(Dispatchers.Main) {
+                            results?.let {
+                                if (it.isNotEmpty() && it[0].categories.isNotEmpty()) {
+                                    val sortedCategories = it[0].categories.sortedByDescending { it.score }
+
+                                    val resultBottomSheet = ResultBottomSheet()
+                                    val bundle = Bundle()
+                                    bundle.putString("disease", sortedCategories[0].label)
+                                    bundle.putFloat("score", sortedCategories[0].score)
+                                    resultBottomSheet.arguments = bundle
+                                    resultBottomSheet.show(childFragmentManager, ResultBottomSheet.TAG)
+                                }
+
+                            }
+                            // Hide the progress bar when the results are ready
+                            binding.progressCircular.visibility = View.GONE
+
+
+                        }
+                    }
+
+                })
+
+            withContext(Dispatchers.IO) {
+                helper.classifyStaticImage(uri)
+            }
+        }
+
+
+
+//        val helper = ImageClassifierHelper(
+//            context = requireContext(),
+//            classifierListener = object : ImageClassifierHelper.ClassifierListener {
+//                override fun onError(error: String) {
+//                    showToast(error)
+//                }
 //
-//
-//            // Prepare and show the bottom sheet
-//            val resultBottomSheet = ResultBottomSheet()
-////            val bundle = Bundle().apply {
-////                putInt("result", randomDummyResult)
-////            }
-//            resultBottomSheet.arguments = bundle
-//            resultBottomSheet.show(childFragmentManager, ResultBottomSheet.TAG)
-//
-//            // Hide the progress circular
-//            binding.progressCircular.visibility = View.GONE
-//        }, 3000) // Delay for 3 seconds
+//                override fun onResults(results: List<Classifications>?) {
+//                    activity?.runOnUiThread {
+//                        results?.let { it ->
+//                            if (it.isNotEmpty() && it[0].categories.isNotEmpty()) {
+//                                println(it)
+//                                val sortedCategories =
+//                                    it[0].categories.sortedByDescending { it?.score }
+//                                val displayResult =
+//                                    "${
+//                                        NumberFormat.getPercentInstance()
+//                                            .format(sortedCategories[0].score).trim()
+//                                    } " + sortedCategories[0].label
+//                                //moveToResult(uri, displayResult)
+//                                println(displayResult)
+//                            }
+//                        }
+//                    }
+//                }
+//            })
+//        helper.classifyStaticImage(uri)
     }
+
 
     private fun updateAnalyzeButtonState() {
         if (currentImageUri != null) {
