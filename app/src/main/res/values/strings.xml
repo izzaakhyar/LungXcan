@@ -26,4 +26,11 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
     <string name="read_more">READ MORE</string>
     <string name="open_in_maps">Open in maps</string>
     <string name="scan_history">Scan History</string>
+    <string name="classifier_failed">Image classifier failed</string>
+    <string name="result_high">The analysis indicates a high probability of lung disease. We recommend consulting a doctor immediately.</string>
+    <string name="result_low">The analysis indicates a low probability of lung disease.
+Preventive care is essential, so we\'ve included some
+resources below to help you maintain healthy lungs </string>
+    <string name="recommend_title_high">Nearby Hospitals</string>
+    <string name="recommend_title_low">Read Articles</string>
 </resources>

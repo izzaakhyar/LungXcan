@@ -7,4 +7,5 @@
     <color name="colorOnPrimary">#003828</color>
     <color name="ijo">#8AD6B7</color>
     <color name="ijoakhir">#49E5A6</color>
+    <color name="colorError">#BA1A1A</color>
 </resources>
