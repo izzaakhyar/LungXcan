@@ -40,22 +40,35 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:paddingHorizontal="16dp"
-        android:text="@string/scan_history"
+        android:text="Lung Disease 101"
         android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-        android:textColor="?attr/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="?attr/colorOnSecondaryContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_article" />
 
+    <Button
+        android:id="@+id/btn_seeMore"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="LEARN MORE"
+        app:layout_constraintBottom_toTopOf="@+id/rv_disease"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/rv_article" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_scan_history"
+        android:id="@+id/rv_disease"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

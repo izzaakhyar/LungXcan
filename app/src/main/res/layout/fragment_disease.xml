@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="16dp"
     android:background="?attr/colorSurface"
-    tools:context=".ui.history.HistoryFragment">
+    tools:context=".ui.disease.DiseaseFragment">
 
     <include
         android:id="@+id/app_bar"
@@ -25,7 +27,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_bar"
-        tools:listitem="@layout/item_history"/>
+        tools:listitem="@layout/item_info_disease"
+        tools:spanCount="2"/>
 
     <TextView
         android:id="@+id/tv_empty_text"

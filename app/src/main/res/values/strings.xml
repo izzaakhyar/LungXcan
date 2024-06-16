@@ -2,7 +2,7 @@
     <string name="app_name">LungXcan</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_history">History</string>
+    <string name="title_disease">Disease</string>
     <string name="title_scan">Scan</string>
     <string name="title_article">Article</string>
     <string name="title_setting">Setting</string>
