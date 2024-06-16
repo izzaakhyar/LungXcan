@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/navigation_history"
         android:name="com.bangkit.lungxcan.ui.disease.DiseaseFragment"
-        android:label="@string/title_history"
+        android:label="@string/title_disease"
         tools:layout="@layout/fragment_disease" />
 
     <fragment

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.disease.DiseaseDetailActivity">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar">
+
+        <ImageView
+            android:id="@+id/iv_disease_detail"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_scan_status"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_image_24" />
+
+        <TextView
+            android:id="@+id/tv_disease_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
+
+            app:layout_constraintBottom_toBottomOf="@+id/iv_disease_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_disease_detail"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Pleural Thickening" />
+
+        <TextView
+            android:id="@+id/tv_scan_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Scan Availability:"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_disease_detail" />
+
+        <TextView
+            android:id="@+id/tv_ready"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:textColor="?attr/colorPrimary"
+
+            app:layout_constraintBottom_toBottomOf="@+id/tv_scan_status"
+            app:layout_constraintStart_toEndOf="@+id/tv_scan_status"
+            tools:text="READY" />
+
+        <Button
+            android:id="@+id/btn_seeMore"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click here to learn more"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_scan_status" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/btn_seeMore" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider">
+
+            <TextView
+                android:id="@+id/tv_definition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                tools:text="What is Tuberculosis?" />
+
+            <TextView
+                android:id="@+id/tv_detail_definition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                tools:text="Bronchiectasis is a condition where the airways in the lungs become widened and stretched, forming pockets where germs, dust, and mucus can collect and lead to infections. This cycle of infection and damage to the airways perpetuates itself.
+
+In adults, bronchiectasis often follows severe lung infections like pneumonia, tuberculosis, or whooping cough. In children and infants, it can be congenital, often associated with conditions like cystic fibrosis or immunodeficiency disorders." />
+
+            <TextView
+                android:id="@+id/tv_symptom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                tools:text="Symptoms of Tuberculosis" />
+
+            <TextView
+                android:id="@+id/tv_detail_symptom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                tools:text="- Sore throat\n- Runny nose\n- Headache\n- Cough" />
+
+            <TextView
+                android:id="@+id/tv_treatment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                tools:text="Treating Tuberculosis" />
+
+            <TextView
+                android:id="@+id/tv_detail_treatment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                tools:text="Bronchiectasis is a condition where the airways in the lungs become widened and stretched, forming pockets where germs, dust, and mucus can collect and lead to infections. This cycle of infection and damage to the airways perpetuates itself.
+
+In adults, bronchiectasis often follows severe lung infections like pneumonia, tuberculosis, or whooping cough. In children and infants, it can be congenital, often associated with conditions like cystic fibrosis or immunodeficiency disorders." />
+
+            <TextView
+                android:id="@+id/tv_preventing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                tools:text="Preventing Tuberculosis" />
+
+            <TextView
+                android:id="@+id/tv_detail_preventing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                tools:text="Bronchiectasis is a condition where the airways in the lungs become widened and stretched, forming pockets where germs, dust, and mucus can collect and lead to infections. This cycle of infection and damage to the airways perpetuates itself.
+
+In adults, bronchiectasis often follows severe lung infections like pneumonia, tuberculosis, or whooping cough. In children and infants, it can be congenital, often associated with conditions like cystic fibrosis or immunodeficiency disorders." />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
