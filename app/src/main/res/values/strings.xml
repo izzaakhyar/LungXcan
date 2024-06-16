@@ -5,7 +5,7 @@
     <string name="title_history">History</string>
     <string name="title_scan">Scan</string>
     <string name="title_article">Article</string>
-    <string name="title_setting">Setting</string>
+    <string name="title_setting">Settings</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="choose_image">Choose Image</string>
@@ -15,8 +15,13 @@
     <string name="analyze">Analyze</string>
     <string name="result">Result</string>
     <string name="article_thumbnail">Article Thumbnail</string>
-    <string name="hospital_image">Hospital image</string>
-
+    <string name="hospital_image">Hospital Image</string>
+     <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="name">Nama</string>
+    <string name="title_signup_page">Test</string>
     <string name="dummy_article">
         Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
@@ -24,7 +29,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
     </string>
     <string name="share">Share</string>
     <string name="read_more">READ MORE</string>
-    <string name="open_in_maps">Open in maps</string>
+    <string name="open_in_maps">Open In Maps</string>
     <string name="scan_history">Scan History</string>
     <string name="classifier_failed">Image classifier failed</string>
     <string name="result_high">The analysis indicates a high probability of lung disease. We recommend consulting a doctor immediately.</string>
@@ -34,3 +39,4 @@ resources below to help you maintain healthy lungs </string>
     <string name="recommend_title_high">Nearby Hospitals</string>
     <string name="recommend_title_low">Read Articles</string>
 </resources>
+
