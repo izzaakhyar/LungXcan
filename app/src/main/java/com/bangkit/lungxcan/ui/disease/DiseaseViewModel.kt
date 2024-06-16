@@ -1,10 +1,10 @@
-package com.bangkit.lungxcan.ui.history
+package com.bangkit.lungxcan.ui.disease
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HistoryViewModel : ViewModel() {
+class DiseaseViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"

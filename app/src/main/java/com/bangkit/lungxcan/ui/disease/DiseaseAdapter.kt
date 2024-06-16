@@ -1,4 +1,4 @@
-package com.bangkit.lungxcan.ui.history
+package com.bangkit.lungxcan.ui.disease
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,15 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bangkit.lungxcan.data.DummyHistory
-import com.bangkit.lungxcan.databinding.ItemHistoryBinding
+import com.bangkit.lungxcan.data.DummyDisease
+import com.bangkit.lungxcan.databinding.ItemInfoDiseaseBinding
 
-class HistoryAdapter : ListAdapter<DummyHistory, HistoryAdapter.ListViewHolder>(DIFF_CALLBACK) {
-    class ListViewHolder(private val binding: ItemHistoryBinding) :
+class DiseaseAdapter : ListAdapter<DummyDisease, DiseaseAdapter.ListViewHolder>(DIFF_CALLBACK) {
+    class ListViewHolder(private val binding: ItemInfoDiseaseBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(dummyHistory: DummyHistory) {
-            binding.tvResultProb.text =
-                "${dummyHistory.prob}% Probability of ${dummyHistory.diseases}"
+        fun bind(dummyDisease: DummyDisease) {
+            binding.tvDisease.text = dummyDisease.diseases
 //            Glide.with(itemView.context)
 //                .load(articleItem.urlToImage)
 //                .apply(
@@ -23,7 +22,7 @@ class HistoryAdapter : ListAdapter<DummyHistory, HistoryAdapter.ListViewHolder>(
 //                )
 //                .into(binding.imageView)
 
-            binding.tvHistoryDate.text = dummyHistory.date
+            //binding.tvHistoryDate.text = dummyHistory.date
 
 
         }
@@ -31,7 +30,7 @@ class HistoryAdapter : ListAdapter<DummyHistory, HistoryAdapter.ListViewHolder>(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val binding = ItemHistoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemInfoDiseaseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(binding)
     }
 
@@ -41,19 +40,19 @@ class HistoryAdapter : ListAdapter<DummyHistory, HistoryAdapter.ListViewHolder>(
     }
 
     companion object {
-        val DIFF_CALLBACK: DiffUtil.ItemCallback<DummyHistory> =
-            object : DiffUtil.ItemCallback<DummyHistory>() {
+        val DIFF_CALLBACK: DiffUtil.ItemCallback<DummyDisease> =
+            object : DiffUtil.ItemCallback<DummyDisease>() {
                 override fun areItemsTheSame(
-                    oldItem: DummyHistory,
-                    newItem: DummyHistory
+                    oldItem: DummyDisease,
+                    newItem: DummyDisease
                 ): Boolean {
                     return oldItem.diseases == newItem.diseases
                 }
 
                 @SuppressLint("DiffUtilEquals")
                 override fun areContentsTheSame(
-                    oldItem: DummyHistory,
-                    newItem: DummyHistory
+                    oldItem: DummyDisease,
+                    newItem: DummyDisease
                 ): Boolean {
                     return oldItem == newItem
                 }

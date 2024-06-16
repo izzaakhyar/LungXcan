@@ -4,23 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.lungxcan.ViewModelFactory
-import com.bangkit.lungxcan.data.DummyHistory
+import com.bangkit.lungxcan.data.DummyDisease
 import com.bangkit.lungxcan.data.ResultState
 import com.bangkit.lungxcan.data.response.ArticlesItem
 import com.bangkit.lungxcan.databinding.FragmentHomeBinding
-import com.bangkit.lungxcan.ui.article.ArticleAdapter
 import com.bangkit.lungxcan.ui.article.ArticleViewModel
-import com.bangkit.lungxcan.ui.history.HistoryAdapter
-import com.bangkit.lungxcan.ui.history.HistoryFragment
-import com.google.android.material.carousel.CarouselLayoutManager
-import com.google.android.material.carousel.CarouselSnapHelper
+import com.bangkit.lungxcan.ui.disease.DiseaseAdapter
 
 class HomeFragment : Fragment() {
 
@@ -46,9 +41,9 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val articleLayoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
-        val historyLayoutManager = LinearLayoutManager(requireActivity())
+        val diseaseLayoutManager = GridLayoutManager(requireActivity(), 2)
         binding.rvArticle.layoutManager = articleLayoutManager
-        binding.rvScanHistory.layoutManager = historyLayoutManager
+        binding.rvDisease.layoutManager = diseaseLayoutManager
 
         return root
     }
@@ -75,19 +70,19 @@ class HomeFragment : Fragment() {
 
         articleViewModel.getArticle()
 
-        val histories = mutableListOf<DummyHistory>()
-//        for (i in 0..10) {
-//            val data = DummyHistory(80, "Lung Cancer", "24 Juni 2024")
-//            histories.add(data)
-//        }
+        val histories = mutableListOf<DummyDisease>()
+        for (i in 0..3) {
+            val data = DummyDisease(80, "Lung Cancer", "24 Juni 2024")
+            histories.add(data)
+        }
 
         if (histories.isEmpty()) {
-            binding.rvScanHistory.visibility = View.GONE
+            binding.rvDisease.visibility = View.GONE
             binding.tvEmptyText.visibility = View.VISIBLE
         } else {
-            val historyAdapter = HistoryAdapter()
-            historyAdapter.submitList(histories)
-            binding.rvScanHistory.adapter = historyAdapter
+            val diseaseAdapter = DiseaseAdapter()
+            diseaseAdapter.submitList(histories)
+            binding.rvDisease.adapter = diseaseAdapter
         }
     }
 
