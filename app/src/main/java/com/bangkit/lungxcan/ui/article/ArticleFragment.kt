@@ -19,7 +19,7 @@ class ArticleFragment : Fragment() {
     private val binding get() = _binding
 
     private val articleViewModel by viewModels<ArticleViewModel> {
-        ViewModelFactory.getInstance()
+        ViewModelFactory.getInstance(requireContext())
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

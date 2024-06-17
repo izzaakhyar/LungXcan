@@ -24,6 +24,7 @@ android {
 
         buildConfigField("String", "BASE_URL", "\"https://newsapi.org/v2/\"")
         buildConfigField("String", "BASE_MAP_URL", "\"https://maps.googleapis.com/maps/api/place/\"")
+        buildConfigField("String", "BASE_CC_URL", "\"https://backend-qpweor334a-et.a.run.app/\"")
         buildConfigField("String", "API_KEY", "\"ea5bb10b6a974d6588bd718bd736b322\"")
         buildConfigField("String", "MAP_API_KEY", "\"AIzaSyB8Ht_I_ly42qypIlffVuoZWAQiKSY-JSg\"")
     }
