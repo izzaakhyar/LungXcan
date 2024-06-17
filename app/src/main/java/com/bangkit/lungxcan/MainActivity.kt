@@ -42,6 +42,9 @@ class MainActivity : AppCompatActivity() {
         ViewModelFactory.getInstance(this)
     }
 
+    var token = ""
+    var username = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         observeSession()
         super.onCreate(savedInstanceState)
@@ -69,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             if (!user.isLogin) {
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
-            }
+            } else token = user.token
         }
     }
 

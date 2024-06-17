@@ -1,6 +1,7 @@
 package com.bangkit.lungxcan.ui.setting
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,12 +27,26 @@ class SettingFragment : Fragment() {
         ViewModelFactory.getInstance(requireContext())
     }
 
+    var token = ""
+    var username = ""
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSettingBinding.inflate(inflater, container, false)
         binding.appBar.topAppBar.title = getString(R.string.title_setting)
+        authViewModel.user.observe(viewLifecycleOwner) {
+            username = it.username
+            //binding.tvtest.text = username
+            Log.d("SettingFragment", "Username: $username")
+        }
+        authViewModel.getSession().observe(viewLifecycleOwner) {
+            token = it.token
+            Log.d("SettingFragment", "Token: $token")
+            authViewModel.getUserInfo(token)
+        }
+
         return binding.root
     }
 
@@ -67,6 +82,11 @@ class SettingFragment : Fragment() {
         binding.cardLogout.setOnClickListener {
             authViewModel.logout()
         }
+
+        //binding.tvtest.text = username
+
+//        print(token)
+//        print(username)
 
     }
 

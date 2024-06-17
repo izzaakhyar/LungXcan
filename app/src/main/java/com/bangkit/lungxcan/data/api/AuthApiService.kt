@@ -3,8 +3,11 @@ package com.bangkit.lungxcan.data.api
 import com.bangkit.lungxcan.data.LoginRequest
 import com.bangkit.lungxcan.data.RegisterRequest
 import com.bangkit.lungxcan.data.response.LoginResponse
+import com.bangkit.lungxcan.data.response.UserResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface AuthApiService {
@@ -17,5 +20,4 @@ interface AuthApiService {
     suspend fun register(
         @Body registerRequest: RegisterRequest
     )
-
 }
