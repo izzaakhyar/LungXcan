@@ -6,17 +6,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.lungxcan.R
+import com.bangkit.lungxcan.ViewModelFactory
 import com.bangkit.lungxcan.databinding.FragmentSettingBinding
+import com.bangkit.lungxcan.ui.login.LoginViewModel
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 
 class SettingFragment : Fragment() {
 
     private lateinit var _binding: FragmentSettingBinding
     private val binding get() = _binding
+
+    private val authViewModel by viewModels<LoginViewModel> {
+        ViewModelFactory.getInstance(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +51,7 @@ class SettingFragment : Fragment() {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                     binding.switchTheme.isChecked = false
                     binding.iconTheme.setImageResource(R.drawable.ic_light_mode_24)
+                    binding.iconLogout.setColorFilter(R.color.black)
                 }
                 fromSetting = true
             }
@@ -53,6 +62,10 @@ class SettingFragment : Fragment() {
 
         settingViewModel.languages.observe(viewLifecycleOwner) { items ->
             (binding.autoComplete as? MaterialAutoCompleteTextView)?.setSimpleItems(items)
+        }
+
+        binding.cardLogout.setOnClickListener {
+            authViewModel.logout()
         }
 
     }

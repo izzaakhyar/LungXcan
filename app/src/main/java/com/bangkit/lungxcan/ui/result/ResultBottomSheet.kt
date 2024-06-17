@@ -35,11 +35,11 @@ class ResultBottomSheet : BottomSheetDialogFragment() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private val articleViewModel by viewModels<ArticleViewModel> {
-        ViewModelFactory.getInstance()
+        ViewModelFactory.getInstance(requireContext())
     }
 
     private val hospitalViewModel by viewModels<HospitalViewModel> {
-        ViewModelFactory.getInstance()
+        ViewModelFactory.getInstance(requireContext())
     }
 
     private lateinit var hospitalData: HospitalRequest

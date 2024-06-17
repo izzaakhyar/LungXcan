@@ -28,6 +28,12 @@
         <activity
             android:name=".ui.article.ArticleDetailActivity"
             android:exported="false" />
+        <activity 
+            android:name=".ui.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.register.RegisterActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
