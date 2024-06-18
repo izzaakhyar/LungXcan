@@ -38,5 +38,105 @@ Preventive care is essential, so we\'ve included some
 resources below to help you maintain healthy lungs </string>
     <string name="recommend_title_high">Nearby Hospitals</string>
     <string name="recommend_title_low">Read Articles</string>
+
+
+
+
+    <string-array name="disease_names">
+        <item>Asbestosis</item>
+        <item>COVID-19</item>
+        <item>Pulmonary Fibrosis</item>
+        <item>Pleural Thickening</item>
+        <item>Pneumonia</item>
+        <item>Tuberculosis</item>
+        <item>Lung Cancer</item>
+    </string-array>
+
+    <string-array name="disease_pictures">
+        <item>https://www.lung.ca/sites/default/files/images/2023-02/8005710939_d877659655_c.jpg</item>
+        <item>https://unair.ac.id/wp-content/uploads/2022/11/Coronavirus-CDC-1.jpg</item>
+        <item>https://www.pulmonaryfibrosis.org/images/default-source/default-album/normal-gas-exchange-impaired-gas-exchange_bordera1533bc1c552488bb072b028b5ed8d93.png?sfvrsn=d40173d9_2</item>
+        <item>https://www.mesolawsuitafterdeath.com/wp-content/uploads/2019/10/Pleural-thickening.png</item>
+        <item>https://ehcebwm3f3o.exactdn.com/wp-content/uploads/Pneumonia-picture-amit-patel-scaled.jpeg?strip=all&amp;lossy=1&amp;ssl=1</item>
+        <item>https://my.clevelandclinic.org/-/scassets/images/org/health/articles/11301-tuberculosis</item>
+        <item>https://my.clevelandclinic.org/-/scassets/images/org/health/articles/4375-lung-cancer</item>
+    </string-array>
+
+    <string-array name="disease_availability">
+        <item>NOT READY</item>
+        <item>READY</item>
+        <item>READY</item>
+        <item>READY</item>
+        <item>READY</item>
+        <item>READY</item>
+        <item>READY</item>
+    </string-array>
+
+    <string-array name="disease_links">
+        <item>https://www.lung.ca/lung-health/lung-diseases/asbestosis</item>
+        <item>https://www.cdc.gov/coronavirus/2019-nCoV/index.html</item>
+        <item>https://www.healthdirect.gov.au/pulmonary-fibrosis</item>
+        <item>https://www.asbestos.com/mesothelioma/pleural-thickening/</item>
+        <item>https://my.clevelandclinic.org/health/diseases/4471-pneumonia</item>
+        <item>https://my.clevelandclinic.org/health/diseases/11301-tuberculosis</item>
+        <item>https://www.healthdirect.gov.au/lung-cancer</item>
+    </string-array>
+
+    <string-array name="disease_definitions">
+        <item>Asbestosis is a chronic lung disease caused by inhaling asbestos fibers. Asbestos, a heat-resistant mineral, was widely used in products like insulation, vinyl floor tiles, cement, and brake linings until its manufacture and use were banned by the federal government in 2018. Asbestos is a known human carcinogen linked to lung and ovarian cancers and mesothelioma. While asbestosis itself is not cancer, it raises the risk of developing asbestos-related cancers.</item>
+        <item>COVID-19, caused by the virus SARS-CoV-2, is highly contagious and has led to over one million deaths in the United States. It primarily causes respiratory symptoms similar to a cold, flu, or pneumonia but can also affect other parts of the body. While most people experience mild symptoms, some can become severely ill.</item>
+        <item>Pulmonary fibrosis is a lung disease. The tissue around the air sacs of the lungs (known as alveoli) becomes damaged, thickened, and scarred. As the lungs scar and stiffen, breathing becomes more difficult. It can mean that not enough oxygen enters your blood.</item>
+        <item>Pleural thickening is irritated and inflamed tissue in the lining of the lungs or pleural membrane. This thickening is the result of scarring (fibrosis) on the pleural membrane from long-term (chronic) inflammation.</item>
+        <item>Pneumonia is an infection in your lungs caused by bacteria, viruses, or fungi. Pneumonia causes your lung tissue to swell (inflammation) and can cause fluid or pus in your lungs. Bacterial pneumonia is usually more severe than viral pneumonia, which often resolves on its own.</item>
+        <item>Tuberculosis is an infectious disease that can cause infection in your lungs or other tissues. It commonly affects your lungs, but it can also affect other organs like your spine, brain, or kidneys.</item>
+        <item>Lung cancer occurs when abnormal lung cells grow uncontrollably, either originating in the lungs (primary) or spreading from other body parts (secondary). It is the leading cause of cancer-related deaths in Australia and is often diagnosed late due to lack of early symptoms.</item>
+    </string-array>
+
+    <string-array name="disease_symptoms">
+        <item>- Feeling short of breath.\n- Dry cough\n- Chest pain</item>
+        <item>- Fever or chills\n- Cough\n- Shortness of breath or difficulty breathing\n- Fatigue\n- Muscle or body aches\n- Headache\n- New loss of taste or smell\n- Sore throat\n- Congestion or runny nose\n- Nausea or vomiting\n- Diarrhea</item>
+        <item>- Shortness of breath, initially during activity and later at rest.\n- Persistent dry cough.\n- Fatigue.\n- Weight loss.\n- Loss of appetite.\n- Clubbing of fingers or toes (bulging fingertips).\n- Joint and muscle pain.</item>
+        <item>- Breathlessness.\n- Chest pain.\n- Coughing.\n- Fever (in some cases).</item>
+        <item>- High fever (up to 105 F or 40.55 C).\n- Cough with yellow, green or bloody mucus.\n- Tiredness (fatigue).\n- Rapid breathing.\n- Shortness of breath.\n- Rapid heart rate.\n- Sweating or chills.\n- Chest pain and/or abdominal pain, especially with coughing or deep breathing.\n- Loss of appetite.\n- Bluish skin, lips or nails (cyanosis).\n- Confusion or altered mental state.</item>
+        <item>- Bad cough (lasting longer than two weeks).\n- Pain in your chest.\n- Coughing up blood or sputum (mucus).\n- Fatigue or weakness.\n- Loss of appetite.\n- Weight loss.\n- Chills.\n- Fever.\n- Night sweats.</item>
+        <item>- A persistent, new cough (lasting more than 3 weeks).\n- A change in an existing cough\n- Breathlessness\n- Chest or shoulder pain\n- A chest infection that does not go away (after 3 weeks) or keeps coming back\n- Coughing or spitting up blood</item>
+    </string-array>
+
+
+
+    <string-array name="disease_treatments">
+        <item>- Following an exercise or pulmonary (respiratory) rehabilitation program under a doctor\'s supervision.\n- Learning about healthy eating and nutrition.\n- Washing hands properly.\n- Getting vaccinations (shots) against the flu and pneumonia.\n- Using prescribed oxygen.\n- Draining fluid from your lungs, when needed.\n- Getting a lung transplant, in some cases.</item>
+        <item>- At-home Care for Mild Cases:\n  - Use over-the-counter medicines like acetaminophen or ibuprofen for symptom relief.\n- Medical Treatment for High-Risk Individuals:\n  - Contact a healthcare provider immediately if at high risk, even if symptoms are mild.\n  - Treatment must start within 5–7 days of symptom onset.\n  - FDA-authorized antiviral medications are available for mild to moderate cases.\n- High-Risk Groups Include:\n  - Older adults (65+)\n  - Unvaccinated individuals or those not up to date on vaccinations\n  - People with chronic conditions (e.g., lung disease, heart disease) or weakened immune systems\n- Vaccination:\n  - Stay up to date with COVID-19 vaccinations to reduce the risk of severe illness, hospitalization, and death.\n- Consult Healthcare Providers:\n  - Ensure COVID-19 treatments are safe with other medications being taken.\n  - Follow guidelines provided by healthcare professionals for the best treatment options.</item>
+        <item>- Antifibrotic medicines like nintedanib and pirfenidone can slow or halt the progression of idiopathic pulmonary fibrosis.\n- Anti-inflammatory drugs may be prescribed.\n- Medications to manage breathlessness and oxygen therapy can improve symptoms.\n- Lung transplant may be considered for severe cases of pulmonary fibrosis.</item>
+        <item>- Quit smoking\n- Maintain an active lifestyle\n- Undergo pulmonary rehabilitation</item>
+        <item>- Antibiotics: Treat bacterial pneumonia; may be prescribed if bacterial infection accompanies a virus.\n- Antifungal medications: Treat pneumonia caused by fungal infections.\n- Antiviral medications: Can shorten the duration and severity of viral pneumonia; examples include oseltamivir (Tamiflu®), zanamivir (Relenza®), and peramivir (Rapivab®).\n- Oxygen therapy: Provides extra oxygen through a nose tube or face mask if oxygen levels are low.\n- IV fluids: Given through a vein to treat or prevent dehydration.\n- Draining of fluids: Removes excess fluid between the lungs and chest wall (pleural effusion) using a catheter or surgery.</item>
+        <item>- TB Medications: Treatment includes drugs like Isoniazid, Rifampin, Ethambutol, Pyrazinamide, and Rifapentine.\n- Complete Treatment: Take all prescribed medications as directed to ensure all bacteria are killed; treatment can last up to nine months.\n- Drug Resistance: Some TB strains are resistant, so multiple drugs are often used.\n- Finish Prescription: It\'s crucial to complete the entire course of medication as prescribed by your healthcare provider.</item>
+        <item>- Surgery: Removes cancer if it is early-stage NSCLC.\n- Lobectomy: Removes one lobe of a lung.\n- Segmentectomy or wedge resection: Removes part of a lung.\n- Pneumonectomy: Removes one whole lung.\n- Radiotherapy: Damages cancer cells and stops them from dividing or spreading.\n- Chemotherapy: Uses strong medicines to kill cancer cells.\n- Targeted therapy: Uses medicine to attack cancer cells with specific features, like genetic mutations.\n- Immunotherapy: Uses medicines to help the immune system find and kill cancer cells.</item>
+    </string-array>
+
+
+
+
+
+    <string-array name="disease_preventions">
+        <item>- Staying away from asbestos – stop your exposure.\n- Quitting smoking.</item>
+        <item>- Stay up to date with COVID-19 vaccines to lower the risk of severe illness, hospitalization, and death.\n- Practice good hygiene to improve cleanliness.\n- Take steps to ensure cleaner air.\n- Wear a mask and maintain distance from others.\n- Test for COVID-19 to determine next steps, such as treatment and measures to prevent spreading the virus.</item>
+        <item>- Quitting smoking.\n- Adopting a healthy diet.\n- Regular exercise and physical activity.\n- Seeking treatment promptly for chest infections.\n- Avoiding known causes and risk factors whenever feasible.</item>
+        <item>- Check for and remove sources of asbestos exposure at home or work.\n- Wear a face mask to prevent respiratory illnesses like COVID-19.\n- Quit smoking or reduce tobacco use, and avoid secondhand smoke.\n- Avoid lung irritants and minimize coughing triggers.\n- Consider installing an air purifier with dehumidification if in a humid area.\n- Stay physically active to improve cardiorespiratory fitness.\n- Eat a healthy diet low on the glycemic index and hypoallergenic.</item>
+        <item>- Get vaccinated against bacteria and viruses that commonly cause it.\n- Quit smoking and avoid secondhand smoke to protect your lungs.\n- Wash hands with soap and water regularly; use alcohol-based hand sanitizer when soap isn\'t available.\n- Avoid close contact and sharing items if someone has an infectious disease like flu, cold, or COVID-19.\n- Ask healthcare providers in hospitals about infection prevention during your stay.\n- Eat a healthy diet, exercise, and get enough rest to support your immune system.\n- Treat other health conditions to prevent weakening your immune system and reduce pneumonia risk.\n- Limit alcohol consumption to maintain overall health and immune function.</item>
+        <item>- Washing your hands thoroughly and often.\n- Coughing into your elbow or covering your mouth when you cough.\n- Avoiding close contact with other people.\n- Making sure you take all of your medication correctly.\n- Not returning to work or school until you\'ve been cleared by your healthcare provider.</item>
+        <item>- Quit smoking.\n- Avoid secondhand smoke exposure.</item>
+    </string-array>
+
+    <string-array name="disease_icons">
+        <item>https://png.pngtree.com/png-vector/20220518/ourmid/pngtree-lung-with-asbestos-color-icon-vector-png-image_4662063.png</item>
+        <item>https://cdn-icons-png.flaticon.com/512/2785/2785819.png</item>
+        <item>https://cdn.iconscout.com/icon/premium/png-256-thumb/cystic-fibrosis-5993310-5018728.png</item>
+        <item>https://www.mesotheliomahub.com/app/uploads/2020/07/MH_Icons_2020-blue_stage-2.png</item>
+        <item>https://cdn-icons-png.flaticon.com/512/2785/2785555.png</item>
+        <item>https://cdn-icons-png.flaticon.com/512/10282/10282454.png</item>
+        <item>https://cdn-icons-png.flaticon.com/512/1430/1430522.png</item>
+    </string-array>
+
 </resources>
 

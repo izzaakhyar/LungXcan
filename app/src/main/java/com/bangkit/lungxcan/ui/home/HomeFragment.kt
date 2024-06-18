@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.lungxcan.ViewModelFactory
-import com.bangkit.lungxcan.data.DummyDisease
+import com.bangkit.lungxcan.data.DiseaseRequest
 import com.bangkit.lungxcan.data.ResultState
 import com.bangkit.lungxcan.data.response.ArticlesItem
 import com.bangkit.lungxcan.databinding.FragmentHomeBinding
@@ -20,6 +20,7 @@ import com.bangkit.lungxcan.ui.disease.DiseaseAdapter
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
+    private val list = ArrayList<DiseaseRequest>()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -70,20 +71,20 @@ class HomeFragment : Fragment() {
 
         articleViewModel.getArticle()
 
-        val histories = mutableListOf<DummyDisease>()
-        for (i in 0..3) {
-            val data = DummyDisease(80, "Lung Cancer", "24 Juni 2024")
-            histories.add(data)
-        }
-
-        if (histories.isEmpty()) {
-            binding.rvDisease.visibility = View.GONE
-            binding.tvEmptyText.visibility = View.VISIBLE
-        } else {
-            val diseaseAdapter = DiseaseAdapter()
-            diseaseAdapter.submitList(histories)
-            binding.rvDisease.adapter = diseaseAdapter
-        }
+//        val histories = mutableListOf<DiseaseRequest>()
+//        for (i in 0..3) {
+//            //val data = DiseaseRequest(80, "Lung Cancer", "24 Juni 2024")
+//            histories.add(data)
+//        }
+//
+//        if (histories.isEmpty()) {
+//            binding.rvDisease.visibility = View.GONE
+//            binding.tvEmptyText.visibility = View.VISIBLE
+//        } else {
+//            val diseaseAdapter = DiseaseAdapter()
+//            diseaseAdapter.submitList(histories)
+//            binding.rvDisease.adapter = diseaseAdapter
+//        }
     }
 
     private fun setArticleData(result: List<ArticlesItem>) {
