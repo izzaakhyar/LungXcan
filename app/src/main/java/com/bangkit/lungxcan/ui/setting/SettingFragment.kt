@@ -38,7 +38,8 @@ class SettingFragment : Fragment() {
         binding.appBar.topAppBar.title = getString(R.string.title_setting)
         authViewModel.user.observe(viewLifecycleOwner) {
             username = it.username
-            //binding.tvtest.text = username
+            binding.tvUsername.text = username
+            binding.tvEmail.text = it.email
             Log.d("SettingFragment", "Username: $username")
         }
         authViewModel.getSession().observe(viewLifecycleOwner) {
@@ -60,13 +61,10 @@ class SettingFragment : Fragment() {
             .observe(viewLifecycleOwner) { isDarkModeActive: Boolean ->
                 if (isDarkModeActive) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                    binding.switchTheme.isChecked = true
-                    binding.iconTheme.setImageResource(R.drawable.ic_nights_mode_24)
+                    iconNight()
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                    binding.switchTheme.isChecked = false
-                    binding.iconTheme.setImageResource(R.drawable.ic_light_mode_24)
-                    binding.iconLogout.setColorFilter(R.color.black)
+                    iconDay()
                 }
                 fromSetting = true
             }
@@ -75,9 +73,9 @@ class SettingFragment : Fragment() {
             settingViewModel.saveThemeSetting(isChecked)
         }
 
-        settingViewModel.languages.observe(viewLifecycleOwner) { items ->
-            (binding.autoComplete as? MaterialAutoCompleteTextView)?.setSimpleItems(items)
-        }
+//        settingViewModel.languages.observe(viewLifecycleOwner) { items ->
+//            (binding.autoComplete as? MaterialAutoCompleteTextView)?.setSimpleItems(items)
+//        }
 
         binding.cardLogout.setOnClickListener {
             authViewModel.logout()
@@ -88,6 +86,26 @@ class SettingFragment : Fragment() {
 //        print(token)
 //        print(username)
 
+    }
+
+    private fun iconDay() {
+        binding.apply {
+            switchTheme.isChecked = false
+            ivProfile.setImageResource(R.drawable.account_24)
+            iconLanguage.setImageResource(R.drawable.ic_language_24)
+            iconTheme.setImageResource(R.drawable.ic_light_mode_24)
+            iconLogout.setImageResource(R.drawable.ic_logout_24)
+        }
+    }
+
+    private fun iconNight() {
+        binding.apply {
+            switchTheme.isChecked = true
+            ivProfile.setImageResource(R.drawable.account_night)
+            iconLanguage.setImageResource(R.drawable.ic_language_night)
+            iconTheme.setImageResource(R.drawable.ic_nights_mode_24)
+            iconLogout.setImageResource(R.drawable.ic_logout_night)
+        }
     }
 
     companion object {
