@@ -16,7 +16,7 @@
     <string name="result">Result</string>
     <string name="article_thumbnail">Article Thumbnail</string>
     <string name="hospital_image">Hospital Image</string>
-     <string name="email">Email</string>
+    <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
@@ -102,7 +102,6 @@ resources below to help you maintain healthy lungs </string>
     </string-array>
 
 
-
     <string-array name="disease_treatments">
         <item>- Following an exercise or pulmonary (respiratory) rehabilitation program under a doctor\'s supervision.\n- Learning about healthy eating and nutrition.\n- Washing hands properly.\n- Getting vaccinations (shots) against the flu and pneumonia.\n- Using prescribed oxygen.\n- Draining fluid from your lungs, when needed.\n- Getting a lung transplant, in some cases.</item>
         <item>- At-home Care for Mild Cases:\n  - Use over-the-counter medicines like acetaminophen or ibuprofen for symptom relief.\n- Medical Treatment for High-Risk Individuals:\n  - Contact a healthcare provider immediately if at high risk, even if symptoms are mild.\n  - Treatment must start within 5–7 days of symptom onset.\n  - FDA-authorized antiviral medications are available for mild to moderate cases.\n- High-Risk Groups Include:\n  - Older adults (65+)\n  - Unvaccinated individuals or those not up to date on vaccinations\n  - People with chronic conditions (e.g., lung disease, heart disease) or weakened immune systems\n- Vaccination:\n  - Stay up to date with COVID-19 vaccinations to reduce the risk of severe illness, hospitalization, and death.\n- Consult Healthcare Providers:\n  - Ensure COVID-19 treatments are safe with other medications being taken.\n  - Follow guidelines provided by healthcare professionals for the best treatment options.</item>
@@ -112,9 +111,6 @@ resources below to help you maintain healthy lungs </string>
         <item>- TB Medications: Treatment includes drugs like Isoniazid, Rifampin, Ethambutol, Pyrazinamide, and Rifapentine.\n- Complete Treatment: Take all prescribed medications as directed to ensure all bacteria are killed; treatment can last up to nine months.\n- Drug Resistance: Some TB strains are resistant, so multiple drugs are often used.\n- Finish Prescription: It\'s crucial to complete the entire course of medication as prescribed by your healthcare provider.</item>
         <item>- Surgery: Removes cancer if it is early-stage NSCLC.\n- Lobectomy: Removes one lobe of a lung.\n- Segmentectomy or wedge resection: Removes part of a lung.\n- Pneumonectomy: Removes one whole lung.\n- Radiotherapy: Damages cancer cells and stops them from dividing or spreading.\n- Chemotherapy: Uses strong medicines to kill cancer cells.\n- Targeted therapy: Uses medicine to attack cancer cells with specific features, like genetic mutations.\n- Immunotherapy: Uses medicines to help the immune system find and kill cancer cells.</item>
     </string-array>
-
-
-
 
 
     <string-array name="disease_preventions">
