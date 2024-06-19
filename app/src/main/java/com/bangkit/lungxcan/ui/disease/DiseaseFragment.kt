@@ -25,8 +25,8 @@ class DiseaseFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val diseaseViewModel =
-            ViewModelProvider(this)[DiseaseViewModel::class.java]
+//        val diseaseViewModel =
+//            ViewModelProvider(this)[DiseaseViewModel::class.java]
 
         _binding = FragmentDiseaseBinding.inflate(inflater, container, false)
 

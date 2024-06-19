@@ -174,6 +174,8 @@ class ScanFragment : Fragment() {
 
                                     val resultBottomSheet = ResultBottomSheet()
                                     val bundle = Bundle()
+                                    val idDisease = getIdDisease(sortedCategories[0].label)
+                                    bundle.putInt("id", idDisease)
                                     bundle.putString("disease", sortedCategories[0].label)
                                     bundle.putFloat("score", sortedCategories[0].score)
                                     resultBottomSheet.arguments = bundle
@@ -249,6 +251,19 @@ class ScanFragment : Fragment() {
 
     private fun showToast(message: String) {
         Toast.makeText(requireActivity(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun getIdDisease(disease: String): Int {
+        val labels = listOf(
+            "CANCER",
+            "COVID",
+            "FIBROSIS",
+            "NORMAL",
+            "PLEURAL THICKENING",
+            "PNEUMONIA",
+            "TBC"
+        )
+        return labels.indexOf(disease) + 1
     }
 
     override fun onDestroyView() {

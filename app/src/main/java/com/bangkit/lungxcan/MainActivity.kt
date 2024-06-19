@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.lungxcan.databinding.ActivityMainBinding
-import com.bangkit.lungxcan.ml.TfliteModel
+//import com.bangkit.lungxcan.ml.TfliteModel
 import com.bangkit.lungxcan.ui.login.LoginActivity
 import com.bangkit.lungxcan.ui.login.LoginViewModel
 import com.bangkit.lungxcan.ui.setting.SettingFragment

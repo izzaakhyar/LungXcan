@@ -1,16 +1,21 @@
 package com.bangkit.lungxcan.ui.result
 
 import android.Manifest
+import android.app.AlertDialog
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.ViewModelFactory
@@ -20,6 +25,7 @@ import com.bangkit.lungxcan.data.response.ArticlesItem
 import com.bangkit.lungxcan.databinding.ResultBottomSheetBinding
 import com.bangkit.lungxcan.ui.article.ArticleAdapter
 import com.bangkit.lungxcan.ui.article.ArticleViewModel
+import com.bangkit.lungxcan.ui.disease.DiseaseViewModel
 import com.bumptech.glide.Glide
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -42,6 +48,10 @@ class ResultBottomSheet : BottomSheetDialogFragment() {
         ViewModelFactory.getInstance(requireContext())
     }
 
+    private val diseaseViewModel by viewModels<DiseaseViewModel> {
+        ViewModelFactory.getInstance(requireContext())
+    }
+
     private lateinit var hospitalData: HospitalRequest
 
     override fun onCreateView(
@@ -60,11 +70,51 @@ class ResultBottomSheet : BottomSheetDialogFragment() {
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 
+        val id = requireArguments().getInt("id")
         val disease = requireArguments().getString("disease")
         val score = requireArguments().getFloat("score")
 
         binding.tvResultProbability.text = NumberFormat.getPercentInstance().format(score).trim()
-        binding.tvDiagnose.text = "probability of $disease"
+        binding.tvDiagnose.text = disease
+
+        diseaseViewModel.getDiseaseDetail(id.toString()).observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is ResultState.Loading -> showLoading(true)
+                is ResultState.Success -> {
+                    //binding.tvResultDesc.text = result.data.detail
+                    binding.info.setOnClickListener {
+                        val builder = AlertDialog.Builder(requireContext())
+                        val inflater = layoutInflater
+                        val dialogLayout = inflater.inflate(R.layout.custom_dialog, null)
+                        val dialogMessage = dialogLayout.findViewById<TextView>(R.id.dialog_message)
+                        dialogMessage.text = result.data.detail
+
+                        builder.setView(dialogLayout)
+                            .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                        val dialog = builder.create()
+                        dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_round)
+                        dialog.show()
+
+//                        builder.setTitle("Info")
+//                        builder.setMessage(result.data.detail)
+//                        builder.setPositiveButton("OK", null)
+//                        builder.show()
+                    }
+                    //binding.diseaseDescriptionTextView.text = disease.description
+                    showLoading(false)
+                }
+                is ResultState.Error -> {
+//                    AlertDialog.Builder(this).apply {
+//                        setTitle("Error")
+//                        setMessage(result.error)
+//                        setPositiveButton("Retry") { _, _ -> }
+//                        create()
+//                        show()
+//                    }
+                    //showLoading(false)
+                }
+            }
+        }
 
         when {
             (score > 0.5 && disease != "NORMAL") || (score < 0.5 && disease == "NORMAL") -> {
