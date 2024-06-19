@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.data.response.ArticlesItem
 import com.bangkit.lungxcan.databinding.ItemArticleHomeBinding
-import com.bangkit.lungxcan.ui.article.ArticleDetailActivity
-import com.bangkit.lungxcan.utils.DateFormatter
+import com.bangkit.lungxcan.ui.articledetail.ArticleDetailActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 

@@ -3,11 +3,9 @@ package com.bangkit.lungxcan.data.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.bangkit.lungxcan.data.ResultState
-import com.bangkit.lungxcan.data.api.ArticleDiseaseApiService
-import com.bangkit.lungxcan.data.api.DiseaseDetailApiService
+import com.bangkit.lungxcan.data.api.articledisease.ArticleDiseaseApiService
 import com.bangkit.lungxcan.data.response.ArticleDiseaseResponse
 import com.bangkit.lungxcan.data.response.ArticleDiseaseResponseItem
-import com.bangkit.lungxcan.data.response.DiseaseDetailResponse
 import com.google.gson.Gson
 import retrofit2.HttpException
 import java.io.IOException

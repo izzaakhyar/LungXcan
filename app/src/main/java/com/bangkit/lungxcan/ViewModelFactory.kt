@@ -11,12 +11,12 @@ import com.bangkit.lungxcan.data.repository.LoginRepository
 import com.bangkit.lungxcan.data.repository.MapRepository
 import com.bangkit.lungxcan.data.repository.RegisterRepository
 import com.bangkit.lungxcan.data.repository.UserRepository
-import com.bangkit.lungxcan.ui.article.ArticleDiseaseViewModel
+import com.bangkit.lungxcan.ui.result.articledisease.ArticleDiseaseViewModel
 import com.bangkit.lungxcan.ui.article.ArticleViewModel
 import com.bangkit.lungxcan.ui.disease.DiseaseViewModel
 import com.bangkit.lungxcan.ui.login.LoginViewModel
 import com.bangkit.lungxcan.ui.register.RegisterViewModel
-import com.bangkit.lungxcan.ui.result.HospitalViewModel
+import com.bangkit.lungxcan.ui.result.hospital.HospitalViewModel
 
 class ViewModelFactory(
     private val articleRepository: ArticleRepository,

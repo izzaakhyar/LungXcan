@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.bangkit.lungxcan.BuildConfig
 import com.bangkit.lungxcan.data.ResultState
-import com.bangkit.lungxcan.data.api.MapApiService
+import com.bangkit.lungxcan.data.api.map.MapApiService
 import com.bangkit.lungxcan.data.response.MapResponse
 
 class MapRepository private constructor(private val mapApiService: MapApiService) {

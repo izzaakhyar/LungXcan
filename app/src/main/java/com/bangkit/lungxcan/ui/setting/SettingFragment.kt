@@ -1,6 +1,8 @@
 package com.bangkit.lungxcan.ui.setting
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -79,6 +81,10 @@ class SettingFragment : Fragment() {
 
         binding.cardLogout.setOnClickListener {
             authViewModel.logout()
+        }
+
+        binding.cardLanguage.setOnClickListener {
+            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
         }
 
         //binding.tvtest.text = username

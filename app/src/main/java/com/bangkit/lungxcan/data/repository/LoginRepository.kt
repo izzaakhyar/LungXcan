@@ -1,9 +1,9 @@
 package com.bangkit.lungxcan.data.repository
 
 import androidx.lifecycle.liveData
-import com.bangkit.lungxcan.data.LoginRequest
+import com.bangkit.lungxcan.data.request.LoginRequest
 import com.bangkit.lungxcan.data.ResultState
-import com.bangkit.lungxcan.data.api.AuthApiService
+import com.bangkit.lungxcan.data.api.auth.AuthApiService
 import com.bangkit.lungxcan.data.pref.UserModel
 import com.bangkit.lungxcan.data.pref.UserPreference
 import com.bangkit.lungxcan.data.response.LoginResponse

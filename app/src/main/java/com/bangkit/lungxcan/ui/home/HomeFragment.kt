@@ -9,8 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.ViewModelFactory
-import com.bangkit.lungxcan.data.DiseaseRequest
+import com.bangkit.lungxcan.data.request.DiseaseRequest
 import com.bangkit.lungxcan.data.ResultState
 import com.bangkit.lungxcan.data.response.ArticlesItem
 import com.bangkit.lungxcan.databinding.FragmentHomeBinding
@@ -71,26 +72,48 @@ class HomeFragment : Fragment() {
 
         articleViewModel.getArticle()
 
-//        val histories = mutableListOf<DiseaseRequest>()
-//        for (i in 0..3) {
-//            //val data = DiseaseRequest(80, "Lung Cancer", "24 Juni 2024")
-//            histories.add(data)
-//        }
-//
-//        if (histories.isEmpty()) {
-//            binding.rvDisease.visibility = View.GONE
-//            binding.tvEmptyText.visibility = View.VISIBLE
-//        } else {
-//            val diseaseAdapter = DiseaseAdapter()
-//            diseaseAdapter.submitList(histories)
-//            binding.rvDisease.adapter = diseaseAdapter
-//        }
+        list.addAll(getListDisease())
+
+        val diseaseAdapter = DiseaseAdapter(list)
+        diseaseAdapter.submitList(list.take(4))
+        binding.rvDisease.adapter = diseaseAdapter
     }
 
     private fun setArticleData(result: List<ArticlesItem>) {
         val articleAdapter = ArticleHomeAdapter()
         articleAdapter.submitList(result)
         binding.rvArticle.adapter = articleAdapter
+    }
+
+    private fun getListDisease(): ArrayList<DiseaseRequest> {
+        val dataDiseaseNames = resources.getStringArray(R.array.disease_names)
+        val dataDiseasePictures = resources.getStringArray(R.array.disease_pictures)
+        val dataDiseaseAvailability = resources.getStringArray(R.array.disease_availability)
+        val dataDiseaseLinks = resources.getStringArray(R.array.disease_links)
+        val dataDiseaseDefinitions = resources.getStringArray(R.array.disease_definitions)
+        val dataDiseaseSymptoms = resources.getStringArray(R.array.disease_symptoms)
+        val dataDiseaseTreatments = resources.getStringArray(R.array.disease_treatments)
+        val dataDiseasePreventions = resources.getStringArray(R.array.disease_preventions)
+        val dataDiseaseIcons = resources.getStringArray(R.array.disease_icons)
+
+        val diseaseList = ArrayList<DiseaseRequest>()
+
+        for (i in dataDiseaseNames.indices) {
+            val disease = DiseaseRequest(
+                disease = dataDiseaseNames[i],
+                image = dataDiseasePictures[i],
+                availability = dataDiseaseAvailability[i],
+                linkRead = dataDiseaseLinks[i],
+                definition = dataDiseaseDefinitions[i],
+                symptom = dataDiseaseSymptoms[i],
+                treatment = dataDiseaseTreatments[i],
+                preventive = dataDiseasePreventions[i],
+                diseaseIcon = dataDiseaseIcons[i]
+            )
+            diseaseList.add(disease)
+        }
+
+        return diseaseList
     }
 
     private fun showLoading(isLoading: Boolean) {

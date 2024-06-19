@@ -39,9 +39,24 @@ resources below to help you maintain healthy lungs </string>
     <string name="recommend_title_high">Nearby Hospitals</string>
     <string name="recommend_title_low">Read Articles</string>
     <string name="disease_info">Disease Info</string>
+    <string name="scan_availability">Scan Availability:</string>
+    <string name="click_here_to_learn_more">Click here to learn more</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="create_your_account">Create your account</string>
+    <string name="input_your_name">Input your name</string>
+    <string name="input_your_email">Input your email</string>
+    <string name="input_your_password">Input your password</string>
+    <string name="try_again">Try Again</string>
+    <string name="lung_disease_101">Lung Disease 101</string>
+    <string name="learn_more">LEARN MORE</string>
+    <string name="application_settings">Application Settings</string>
+    <string name="change_language">Change Language</string>
+    <string name="enable_dark_mode">Enable Dark Mode</string>
+    <string name="logout">Logout</string>
 
 
-    <string-array name="disease_names">
+    <string-array name="disease_names" translatable="false">
         <item>Asbestosis</item>
         <item>COVID-19</item>
         <item>Pulmonary Fibrosis</item>
@@ -51,7 +66,7 @@ resources below to help you maintain healthy lungs </string>
         <item>Lung Cancer</item>
     </string-array>
 
-    <string-array name="disease_pictures">
+    <string-array name="disease_pictures" translatable="false">
         <item>https://www.lung.ca/sites/default/files/images/2023-02/8005710939_d877659655_c.jpg</item>
         <item>https://unair.ac.id/wp-content/uploads/2022/11/Coronavirus-CDC-1.jpg</item>
         <item>https://www.pulmonaryfibrosis.org/images/default-source/default-album/normal-gas-exchange-impaired-gas-exchange_bordera1533bc1c552488bb072b028b5ed8d93.png?sfvrsn=d40173d9_2</item>
@@ -61,7 +76,7 @@ resources below to help you maintain healthy lungs </string>
         <item>https://my.clevelandclinic.org/-/scassets/images/org/health/articles/4375-lung-cancer</item>
     </string-array>
 
-    <string-array name="disease_availability">
+    <string-array name="disease_availability" translatable="false">
         <item>NOT READY</item>
         <item>READY</item>
         <item>READY</item>
@@ -71,7 +86,7 @@ resources below to help you maintain healthy lungs </string>
         <item>READY</item>
     </string-array>
 
-    <string-array name="disease_links">
+    <string-array name="disease_links" translatable="false">
         <item>https://www.lung.ca/lung-health/lung-diseases/asbestosis</item>
         <item>https://www.cdc.gov/coronavirus/2019-nCoV/index.html</item>
         <item>https://www.healthdirect.gov.au/pulmonary-fibrosis</item>
@@ -123,7 +138,7 @@ resources below to help you maintain healthy lungs </string>
         <item>- Quit smoking.\n- Avoid secondhand smoke exposure.</item>
     </string-array>
 
-    <string-array name="disease_icons">
+    <string-array name="disease_icons" translatable="false">
         <item>https://png.pngtree.com/png-vector/20220518/ourmid/pngtree-lung-with-asbestos-color-icon-vector-png-image_4662063.png</item>
         <item>https://cdn-icons-png.flaticon.com/512/2785/2785819.png</item>
         <item>https://cdn.iconscout.com/icon/premium/png-256-thumb/cystic-fibrosis-5993310-5018728.png</item>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LungXcan</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_disease">Penyakit</string>
+    <string name="title_scan">Scan</string>
+    <string name="title_article">Artikel</string>
+    <string name="title_setting">Pengaturan</string>
+    <!-- TODO: Hapus atau ganti teks placeholder ini -->
+    <string name="hello_blank_fragment">Halo fragmen kosong</string>
+    <string name="choose_image">Pilih Gambar</string>
+    <string name="lung_image">Gambar Paru-paru</string>
+    <string name="gallery">Galeri</string>
+    <string name="camera">Kamera</string>
+    <string name="analyze">Analisis</string>
+    <string name="result">Hasil</string>
+    <string name="article_thumbnail">Thumbnail Artikel</string>
+    <string name="hospital_image">Gambar Rumah Sakit</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Masuk</string>
+    <string name="register">Daftar</string>
+    <string name="name">Nama</string>
+    <string name="title_signup_page">Tes</string>
+    <string name="dummy_article">
+    Bertentangan dengan kepercayaan populer, Lorem Ipsum bukan hanya teks acak. Ini berasal dari sepotong literatur Latin klasik dari 45 SM, menjadikannya lebih dari 2000 tahun. Richard McClintock, seorang profesor Latin di Hampden-Sydney College di Virginia, menelusuri salah satu kata Latin yang lebih tidak dikenal, consectetur, dari sebuah bagian Lorem Ipsum, dan melalui kutipan kata tersebut dalam literatur klasik, menemukan sumber yang tidak diragukan lagi. Lorem Ipsum berasal dari bagian 1.10.32 dan 1.10.33 dari "de Finibus Bonorum et Malorum" (Ekstrim Baik dan Jahat) oleh Cicero, yang ditulis pada tahun 45 SM. Buku ini adalah risalah tentang teori etika, sangat populer selama Renaisans. Baris pertama Lorem Ipsum, "Lorem ipsum dolor sit amet..", berasal dari baris di bagian 1.10.32.
+
+Potongan standar Lorem Ipsum yang digunakan sejak tahun 1500-an direproduksi di bawah ini untuk mereka yang tertarik. Bagian 1.10.32 dan 1.10.33 dari "de Finibus Bonorum et Malorum" oleh Cicero juga direproduksi dalam bentuk aslinya yang tepat, disertai dengan versi bahasa Inggris dari terjemahan tahun 1914 oleh H. Rackham.
+</string>
+    <string name="share">Bagikan</string>
+    <string name="read_more">BACA SELENGKAPNYA</string>
+    <string name="open_in_maps">Buka di Maps</string>
+    <string name="scan_history">Riwayat Pindai</string>
+    <string name="classifier_failed">Pengklasifikasi gambar gagal</string>
+    <string name="result_high">Analisis menunjukkan kemungkinan tinggi adanya penyakit paru-paru. Kami merekomendasikan untuk segera berkonsultasi dengan dokter.</string>
+    <string name="result_low">Analisis menunjukkan kemungkinan rendah adanya penyakit paru-paru. Perawatan preventif sangat penting, jadi kami telah menyertakan beberapa sumber di bawah ini untuk membantu Anda menjaga paru-paru tetap sehat</string>
+    <string name="recommend_title_high">Rumah Sakit Terdekat</string>
+    <string name="recommend_title_low">Baca Artikel</string>
+    <string name="disease_info">Info Penyakit</string>
+    <string name="scan_availability">Ketersediaan Scan:</string>
+    <string name="click_here_to_learn_more">Klik untuk mempelajari lebih lanjut</string>
+    <string name="don_t_have_an_account">Tidak punya akun?</string>
+    <string name="sign_up">Daftar</string>
+    <string name="create_your_account">Buat akun Anda</string>
+    <string name="input_your_name">Masukkan nama Anda</string>
+    <string name="input_your_email">Masukkan email Anda</string>
+    <string name="input_your_password">Masukkan kata sandi Anda</string>
+    <string name="try_again">Coba Lagi</string>
+    <string name="lung_disease_101">Lung Disease 101</string>
+    <string name="learn_more">PELAJARI LEBIH LANJUT</string>
+    <string name="application_settings">Pengaturan Aplikasi</string>
+    <string name="change_language">Ubah Bahasa</string>
+    <string name="enable_dark_mode">Aktifkan Mode Gelap</string>
+    <string name="logout">Keluar</string>
+
+
+    <string-array name="disease_definitions">
+        <item>Asbestosis adalah penyakit paru-paru kronis yang disebabkan oleh menghirup serat asbes. Asbes, mineral yang tahan panas, banyak digunakan dalam produk seperti isolasi, ubin lantai vinil, semen, dan lapisan rem sampai pembuatannya dan penggunaannya dilarang oleh pemerintah federal pada tahun 2018. Asbes diketahui sebagai karsinogen manusia yang terkait dengan kanker paru-paru, kanker ovarium, dan mesothelioma. Meskipun asbestosis sendiri bukan kanker, itu meningkatkan risiko pengembangan kanker terkait asbes.</item>
+        <item>COVID-19, yang disebabkan oleh virus SARS-CoV-2, sangat menular dan telah menyebabkan lebih dari satu juta kematian di Amerika Serikat. Ini terutama menyebabkan gejala pernapasan yang mirip dengan pilek, flu, atau pneumonia tetapi juga dapat mempengaruhi bagian tubuh lainnya. Sementara kebanyakan orang mengalami gejala ringan, beberapa bisa menjadi sangat sakit.</item>
+        <item>Fibrosis paru adalah penyakit paru-paru. Jaringan di sekitar kantung udara paru-paru (dikenal sebagai alveoli) menjadi rusak, menebal, dan berparut. Saat paru-paru berparut dan kaku, bernapas menjadi lebih sulit. Ini bisa berarti bahwa tidak cukup oksigen masuk ke dalam darah Anda.</item>
+        <item>Penebalan pleura adalah jaringan yang teriritasi dan meradang di lapisan paru-paru atau membran pleura. Penebalan ini adalah hasil dari jaringan parut (fibrosis) pada membran pleura dari peradangan jangka panjang (kronis).</item>
+        <item>Pneumonia adalah infeksi di paru-paru yang disebabkan oleh bakteri, virus, atau jamur. Pneumonia menyebabkan jaringan paru-paru membengkak (inflamasi) dan dapat menyebabkan cairan atau nanah di paru-paru. Pneumonia bakteri biasanya lebih parah daripada pneumonia virus, yang sering sembuh dengan sendirinya.</item>
+        <item>Tuberkulosis adalah penyakit menular yang dapat menyebabkan infeksi di paru-paru atau jaringan lainnya. Ini biasanya mempengaruhi paru-paru Anda, tetapi juga dapat mempengaruhi organ lain seperti tulang belakang, otak, atau ginjal.</item>
+        <item>Kanker paru-paru terjadi ketika sel-sel paru yang abnormal tumbuh tidak terkendali, baik berasal dari paru-paru (primer) atau menyebar dari bagian tubuh lain (sekunder). Ini adalah penyebab utama kematian terkait kanker di Australia dan sering didiagnosis terlambat karena kurangnya gejala awal.</item>
+    </string-array>
+
+    <string-array name="disease_symptoms">
+        <item>- Merasa sesak napas.\n- Batuk kering\n- Nyeri dada</item>
+        <item>- Demam atau menggigil\n- Batuk\n- Sesak napas atau kesulitan bernapas\n- Kelelahan\n- Nyeri otot atau tubuh\n- Sakit kepala\n- Kehilangan rasa atau bau baru\n- Sakit tenggorokan\n- Hidung tersumbat atau berair\n- Mual atau muntah\n- Diare</item>
+        <item>- Sesak napas, awalnya saat beraktivitas dan kemudian saat istirahat.\n- Batuk kering terus-menerus.\n- Kelelahan.\n- Penurunan berat badan.\n- Kehilangan nafsu makan.\n- Clubbing pada jari tangan atau kaki (ujung jari membulat).\n- Nyeri sendi dan otot.</item>
+        <item>- Sesak napas.\n- Nyeri dada.\n- Batuk.\n- Demam (dalam beberapa kasus).</item>
+        <item>- Demam tinggi (hingga 40.55 C).\n- Batuk dengan lendir kuning, hijau, atau berdarah.\n- Kelelahan.\n- Pernapasan cepat.\n- Sesak napas.\n- Denyut jantung cepat.\n- Berkeringat atau menggigil.\n- Nyeri dada dan/atau perut, terutama saat batuk atau bernapas dalam-dalam.\n- Kehilangan nafsu makan.\n- Kulit, bibir, atau kuku kebiruan (sianosis).\n- Kebingungan atau perubahan mental.</item>
+        <item>- Batuk parah (berlangsung lebih dari dua minggu).\n- Nyeri di dada.\n- Batuk darah atau dahak (lendir).\n- Kelelahan atau kelemahan.\n- Kehilangan nafsu makan.\n- Penurunan berat badan.\n- Menggigil.\n- Demam.\n- Berkeringat di malam hari.</item>
+        <item>- Batuk baru yang terus-menerus (berlangsung lebih dari 3 minggu).\n- Perubahan pada batuk yang sudah ada\n- Sesak napas\n- Nyeri dada atau bahu\n- Infeksi dada yang tidak sembuh-sembuh (setelah 3 minggu) atau terus kembali\n- Batuk atau meludah darah</item>
+    </string-array>
+
+    <string-array name="disease_treatments">
+        <item>- Mengikuti program latihan atau rehabilitasi paru (pernapasan) di bawah pengawasan dokter.\n- Belajar tentang pola makan sehat dan nutrisi.\n- Mencuci tangan dengan benar.\n- Mendapatkan vaksinasi (suntikan) melawan flu dan pneumonia.\n- Menggunakan oksigen yang diresepkan.\n- Mengeluarkan cairan dari paru-paru, bila diperlukan.\n- Mendapatkan transplantasi paru, dalam beberapa kasus.</item>
+        <item>- Perawatan di rumah untuk kasus ringan:\n  - Gunakan obat bebas seperti acetaminophen atau ibuprofen untuk meredakan gejala.\n- Perawatan medis untuk individu berisiko tinggi:\n  - Hubungi penyedia layanan kesehatan segera jika berisiko tinggi, bahkan jika gejala ringan.\n  - Perawatan harus dimulai dalam 5-7 hari setelah timbulnya gejala.\n  - Obat antivirus yang disahkan FDA tersedia untuk kasus ringan hingga sedang.\n- Kelompok berisiko tinggi meliputi:\n  - Lansia (65+)\n  - Orang yang tidak divaksinasi atau yang vaksinasinya tidak mutakhir\n  - Orang dengan kondisi kronis (misalnya, penyakit paru-paru, penyakit jantung) atau sistem kekebalan yang lemah\n- Vaksinasi:\n  - Tetap mutakhir dengan vaksinasi COVID-19 untuk mengurangi risiko penyakit parah, rawat inap, dan kematian.\n- Konsultasikan dengan penyedia layanan kesehatan:\n  - Pastikan perawatan COVID-19 aman dengan obat lain yang sedang dikonsumsi.\n  - Ikuti pedoman yang diberikan oleh profesional kesehatan untuk pilihan perawatan terbaik.</item>
+        <item>- Obat antifibrotik seperti nintedanib dan pirfenidon dapat memperlambat atau menghentikan perkembangan fibrosis paru idiopatik.\n- Obat antiinflamasi mungkin diresepkan.\n- Obat untuk mengelola sesak napas dan terapi oksigen dapat memperbaiki gejala.\n- Transplantasi paru-paru mungkin dipertimbangkan untuk kasus fibrosis paru yang parah.</item>
+        <item>- Berhenti merokok\n- Menjaga gaya hidup aktif\n- Mengikuti rehabilitasi paru</item>
+        <item>- Antibiotik: Mengobati pneumonia bakteri; mungkin diresepkan jika infeksi bakteri menyertai virus.\n- Obat antijamur: Mengobati pneumonia yang disebabkan oleh infeksi jamur.\n- Obat antivirus: Dapat memperpendek durasi dan keparahan pneumonia virus; contohnya oseltamivir (Tamiflu®), zanamivir (Relenza®), dan peramivir (Rapivab®).\n- Terapi oksigen: Memberikan oksigen tambahan melalui selang hidung atau masker wajah jika kadar oksigen rendah.\n- Cairan intravena: Diberikan melalui vena untuk mengobati atau mencegah dehidrasi.\n- Pengurasan cairan: Menghilangkan cairan berlebih antara paru-paru dan dinding dada (efusi pleura) menggunakan kateter atau operasi.</item>
+        <item>- Obat TB: Pengobatan termasuk obat seperti Isoniazid, Rifampin, Ethambutol, Pyrazinamide, dan Rifapentine.\n- Pengobatan Lengkap: Ambil semua obat yang diresepkan sesuai petunjuk untuk memastikan semua bakteri mati; pengobatan bisa berlangsung hingga sembilan bulan.\n- Resistansi Obat: Beberapa strain TB resistan, jadi sering digunakan beberapa obat.\n- Selesaikan Resep: Penting untuk menyelesaikan seluruh rangkaian pengobatan sesuai resep penyedia layanan kesehatan Anda.</item>
+        <item>- Operasi: Mengangkat kanker jika itu adalah NSCLC tahap awal.\n- Lobektomi: Mengangkat satu lobus paru-paru.\n- Segmentektomi atau reseksi baji: Mengangkat sebagian paru-paru.\n- Pneumonektomi: Mengangkat seluruh paru-paru.\n- Radioterapi: Merusak sel kanker dan menghentikan mereka dari pembelahan atau penyebaran.\n- Kemoterapi: Menggunakan obat kuat untuk membunuh sel kanker.\n- Terapi yang ditargetkan: Menggunakan obat untuk menyerang sel kanker dengan fitur tertentu, seperti mutasi genetik.\n- Imunoterapi: Menggunakan obat untuk membantu sistem kekebalan menemukan dan membunuh sel kanker.</item>
+    </string-array>
+
+    <string-array name="disease_preventions">
+        <item>- Menjauhi asbes – hentikan paparan Anda.\n- Berhenti merokok.</item>
+        <item>- Tetap mutakhir dengan vaksin COVID-19 untuk mengurangi risiko penyakit parah, rawat inap, dan kematian.\n- Praktekkan kebersihan yang baik untuk meningkatkan kebersihan.\n- Ambil langkah-langkah untuk memastikan udara lebih bersih.\n- Kenakan masker dan jaga jarak dari orang lain.\n- Tes COVID-19 untuk menentukan langkah selanjutnya, seperti perawatan dan tindakan untuk mencegah penyebaran virus.</item>
+        <item>- Berhenti merokok.\n- Mengadopsi pola makan sehat.\n- Latihan rutin dan aktivitas fisik.\n- Segera mencari pengobatan untuk infeksi dada.\n- Menghindari penyebab dan faktor risiko yang diketahui kapan pun memungkinkan.</item>
+        <item>- Periksa dan hilangkan sumber paparan asbes di rumah atau tempat kerja.\n- Kenakan masker wajah untuk mencegah penyakit pernapasan seperti COVID-19.\n- Berhenti merokok atau kurangi penggunaan tembakau, dan hindari asap rokok pasif.\n- Hindari iritan paru-paru dan minimalkan pemicu batuk.\n- Pertimbangkan untuk memasang pemurni udara dengan dehumidifikasi jika berada di daerah yang lembap.\n- Tetap aktif secara fisik untuk meningkatkan kebugaran kardiorespirasi.\n- Makan pola makan sehat yang rendah indeks glikemik dan hipoalergenik.</item>
+        <item>- Dapatkan vaksinasi terhadap bakteri dan virus yang sering menyebabkan pneumonia.\n- Berhenti merokok dan hindari asap rokok untuk melindungi paru-paru Anda.\n- Cuci tangan dengan sabun dan air secara teratur; gunakan pembersih tangan berbasis alkohol ketika sabun tidak tersedia.\n- Hindari kontak dekat dan berbagi barang jika seseorang memiliki penyakit menular seperti flu, pilek, atau COVID-19.\n- Tanyakan kepada penyedia layanan kesehatan di rumah sakit tentang pencegahan infeksi selama Anda tinggal.\n- Makan pola makan sehat, berolahraga, dan istirahat yang cukup untuk mendukung sistem kekebalan tubuh Anda.\n- Obati kondisi kesehatan lainnya untuk mencegah melemahnya sistem kekebalan tubuh Anda dan mengurangi risiko pneumonia.\n- Batasi konsumsi alkohol untuk menjaga kesehatan dan fungsi kekebalan tubuh secara keseluruhan.</item>
+        <item>- Cuci tangan dengan benar dan sering.\n- Batuk ke dalam siku atau tutupi mulut Anda saat batuk.\n- Hindari kontak dekat dengan orang lain.\n- Pastikan Anda meminum semua obat Anda dengan benar.\n- Jangan kembali bekerja atau sekolah sampai Anda telah dinyatakan sembuh oleh penyedia layanan kesehatan Anda.</item>
+        <item>- Berhenti merokok.\n- Hindari paparan asap rokok pasif.</item>
+    </string-array>
+
+
+</resources>

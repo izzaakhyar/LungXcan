@@ -3,7 +3,7 @@ package com.bangkit.lungxcan.data.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.bangkit.lungxcan.data.ResultState
-import com.bangkit.lungxcan.data.api.ArticleApiConfig
+import com.bangkit.lungxcan.data.api.article.ArticleApiConfig
 import com.bangkit.lungxcan.data.response.ArticleResponse
 import com.bangkit.lungxcan.data.response.ArticlesItem
 import retrofit2.Call

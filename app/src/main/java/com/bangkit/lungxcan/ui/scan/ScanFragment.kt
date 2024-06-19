@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -22,17 +21,13 @@ import com.bangkit.lungxcan.databinding.FragmentScanBinding
 import com.bangkit.lungxcan.databinding.ResultBottomSheetBinding
 //import com.bangkit.lungxcan.helper.ImageClassificationHelper
 import com.bangkit.lungxcan.helper.ImageClassifierHelper
-import com.bangkit.lungxcan.ui.article.ArticleDiseaseFragment
 //import com.bangkit.lungxcan.helper.ImageClassifierHelper
 import com.bangkit.lungxcan.utils.getImageUri
 import com.bangkit.lungxcan.ui.result.ResultBottomSheet
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.tensorflow.lite.task.vision.classifier.Classifications
 //import org.tensorflow.lite.task.vision.classifier.Classifications
-import java.text.NumberFormat
-import kotlin.random.Random
 
 class ScanFragment : Fragment() {
 

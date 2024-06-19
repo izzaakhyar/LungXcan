@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="15dp"
             android:paddingBottom="10dp"
-            android:text="1 Juni 2024"
+            tools:text="1 Juni 2024"
             android:textAppearance="?attr/textAppearanceBodyMedium"
             android:textColor="?android:attr/textColorSecondary"
             app:layout_constraintBottom_toBottomOf="parent"

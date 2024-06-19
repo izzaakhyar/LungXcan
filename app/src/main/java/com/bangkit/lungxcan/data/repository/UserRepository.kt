@@ -1,10 +1,8 @@
 package com.bangkit.lungxcan.data.repository
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.liveData
 import com.bangkit.lungxcan.data.ResultState
-import com.bangkit.lungxcan.data.api.UserApiConfig
+import com.bangkit.lungxcan.data.api.user.UserApiConfig
 import com.bangkit.lungxcan.data.response.User
 import com.bangkit.lungxcan.data.response.UserResponse
 import retrofit2.Call

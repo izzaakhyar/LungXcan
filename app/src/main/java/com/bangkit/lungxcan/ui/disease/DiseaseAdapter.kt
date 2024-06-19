@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bangkit.lungxcan.data.DiseaseRequest
+import com.bangkit.lungxcan.data.request.DiseaseRequest
 import com.bangkit.lungxcan.databinding.ItemInfoDiseaseBinding
+import com.bangkit.lungxcan.ui.diseasedetail.DiseaseDetailActivity
 import com.bumptech.glide.Glide
 
 class DiseaseAdapter(private val listDisease: ArrayList<DiseaseRequest>) : ListAdapter<DiseaseRequest, DiseaseAdapter.ListViewHolder>(DIFF_CALLBACK) {
