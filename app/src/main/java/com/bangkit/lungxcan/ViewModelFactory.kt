@@ -5,11 +5,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.lungxcan.data.di.Injection
 import com.bangkit.lungxcan.data.repository.ArticleRepository
+import com.bangkit.lungxcan.data.repository.DiseaseRepository
 import com.bangkit.lungxcan.data.repository.LoginRepository
 import com.bangkit.lungxcan.data.repository.MapRepository
 import com.bangkit.lungxcan.data.repository.RegisterRepository
 import com.bangkit.lungxcan.data.repository.UserRepository
 import com.bangkit.lungxcan.ui.article.ArticleViewModel
+import com.bangkit.lungxcan.ui.disease.DiseaseViewModel
 import com.bangkit.lungxcan.ui.login.LoginViewModel
 import com.bangkit.lungxcan.ui.register.RegisterViewModel
 import com.bangkit.lungxcan.ui.result.HospitalViewModel
@@ -19,7 +21,8 @@ class ViewModelFactory(
     private val mapRepository: MapRepository,
     private val loginRepository: LoginRepository,
     private val registerRepository: RegisterRepository,
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
+    private val diseaseRepository: DiseaseRepository
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
@@ -36,6 +39,9 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(registerRepository) as T
+            }
+            modelClass.isAssignableFrom(DiseaseViewModel::class.java) -> {
+                DiseaseViewModel(diseaseRepository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
@@ -55,7 +61,8 @@ class ViewModelFactory(
                         Injection.provideMapRepository(),
                         Injection.provideLoginRepository(context),
                         Injection.provideRegisterRepository(context),
-                        Injection.provideUserRepository(context)
+                        Injection.provideUserRepository(context),
+                        Injection.provideDiseaseRepository()
                     )
                 }
             }

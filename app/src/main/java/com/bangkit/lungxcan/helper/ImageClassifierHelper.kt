@@ -38,7 +38,7 @@ import java.nio.ByteOrder
 class ImageClassifierHelper(
     var threshold: Float = 0.1f,
     var maxResults: Int = 3,
-    val modelName: String = "tflite_model.tflite",
+    val modelName: String = "modelvgg16_with_metadata.tflite",
     val context: Context,
     val classifierListener: ClassifierListener?
 ) {
@@ -78,7 +78,7 @@ class ImageClassifierHelper(
         val imageProcessor = ImageProcessor.Builder()
             .add(ResizeOp(224, 224, ResizeOp.ResizeMethod.NEAREST_NEIGHBOR))
             .add(CastOp(org.tensorflow.lite.DataType.FLOAT32))
-            .add(NormalizeOp(127.5f, 127.5f)) // Normalizing to [0, 1]
+            .add(NormalizeOp(127.0f, 128.0f)) // Normalizing to [0, 1]
             .build()
 
         val bitmap = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {

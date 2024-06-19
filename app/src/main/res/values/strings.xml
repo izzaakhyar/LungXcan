@@ -38,8 +38,7 @@ Preventive care is essential, so we\'ve included some
 resources below to help you maintain healthy lungs </string>
     <string name="recommend_title_high">Nearby Hospitals</string>
     <string name="recommend_title_low">Read Articles</string>
-
-
+    <string name="disease_info">Disease Info</string>
 
 
     <string-array name="disease_names">
