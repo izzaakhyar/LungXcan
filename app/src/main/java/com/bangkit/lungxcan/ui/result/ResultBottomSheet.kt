@@ -75,7 +75,7 @@ class ResultBottomSheet : BottomSheetDialogFragment() {
         val score = requireArguments().getFloat("score")
 
         binding.tvResultProbability.text = NumberFormat.getPercentInstance().format(score).trim()
-        binding.tvDiagnose.text = "probability of $disease"
+        binding.tvDiagnose.text = disease
 
         diseaseViewModel.getDiseaseDetail(id.toString()).observe(viewLifecycleOwner) { result ->
             when (result) {
