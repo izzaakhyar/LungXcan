@@ -23,12 +23,15 @@
         android:theme="@style/Theme.LungXcan"
         tools:targetApi="31">
         <activity
+            android:name=".ArticleWebviewActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.disease.DiseaseDetailActivity"
             android:exported="false" />
         <activity
             android:name=".ui.article.ArticleDetailActivity"
             android:exported="false" />
-        <activity 
+        <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false" />
         <activity

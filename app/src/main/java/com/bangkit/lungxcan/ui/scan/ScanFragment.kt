@@ -22,6 +22,7 @@ import com.bangkit.lungxcan.databinding.FragmentScanBinding
 import com.bangkit.lungxcan.databinding.ResultBottomSheetBinding
 //import com.bangkit.lungxcan.helper.ImageClassificationHelper
 import com.bangkit.lungxcan.helper.ImageClassifierHelper
+import com.bangkit.lungxcan.ui.article.ArticleDiseaseFragment
 //import com.bangkit.lungxcan.helper.ImageClassifierHelper
 import com.bangkit.lungxcan.utils.getImageUri
 import com.bangkit.lungxcan.ui.result.ResultBottomSheet

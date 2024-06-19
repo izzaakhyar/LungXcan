@@ -1,6 +1,7 @@
 package com.bangkit.lungxcan.data.di
 
 import android.content.Context
+import com.bangkit.lungxcan.data.api.ArticleDiseaseApiConfig
 import com.bangkit.lungxcan.data.api.AuthApiConfig
 import com.bangkit.lungxcan.data.api.DiseaseDetailApiConfig
 import com.bangkit.lungxcan.data.api.DiseaseDetailApiService
@@ -8,6 +9,7 @@ import com.bangkit.lungxcan.data.api.MapApiConfig
 import com.bangkit.lungxcan.data.api.UserApiConfig
 import com.bangkit.lungxcan.data.pref.UserPreference
 import com.bangkit.lungxcan.data.pref.dataStore
+import com.bangkit.lungxcan.data.repository.ArticleDiseaseRepository
 import com.bangkit.lungxcan.data.repository.ArticleRepository
 import com.bangkit.lungxcan.data.repository.DiseaseRepository
 import com.bangkit.lungxcan.data.repository.LoginRepository
@@ -48,5 +50,10 @@ object Injection {
     fun provideDiseaseRepository(): DiseaseRepository {
         val apiService = DiseaseDetailApiConfig.getDiseaseDetailApiService()
         return DiseaseRepository.getInstance(apiService)
+    }
+
+    fun provideArticleDiseaseRepository(): ArticleDiseaseRepository {
+        val apiService = ArticleDiseaseApiConfig.getArticleDiseaseApiService()
+        return ArticleDiseaseRepository.getInstance(apiService)
     }
 }

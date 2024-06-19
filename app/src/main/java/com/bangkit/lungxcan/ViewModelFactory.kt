@@ -4,12 +4,14 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.lungxcan.data.di.Injection
+import com.bangkit.lungxcan.data.repository.ArticleDiseaseRepository
 import com.bangkit.lungxcan.data.repository.ArticleRepository
 import com.bangkit.lungxcan.data.repository.DiseaseRepository
 import com.bangkit.lungxcan.data.repository.LoginRepository
 import com.bangkit.lungxcan.data.repository.MapRepository
 import com.bangkit.lungxcan.data.repository.RegisterRepository
 import com.bangkit.lungxcan.data.repository.UserRepository
+import com.bangkit.lungxcan.ui.article.ArticleDiseaseViewModel
 import com.bangkit.lungxcan.ui.article.ArticleViewModel
 import com.bangkit.lungxcan.ui.disease.DiseaseViewModel
 import com.bangkit.lungxcan.ui.login.LoginViewModel
@@ -22,7 +24,8 @@ class ViewModelFactory(
     private val loginRepository: LoginRepository,
     private val registerRepository: RegisterRepository,
     private val userRepository: UserRepository,
-    private val diseaseRepository: DiseaseRepository
+    private val diseaseRepository: DiseaseRepository,
+    private val articleDiseaseRepository: ArticleDiseaseRepository
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
@@ -43,6 +46,9 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(DiseaseViewModel::class.java) -> {
                 DiseaseViewModel(diseaseRepository) as T
             }
+            modelClass.isAssignableFrom(ArticleDiseaseViewModel::class.java) -> {
+                ArticleDiseaseViewModel(articleDiseaseRepository) as T
+            }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
@@ -62,7 +68,8 @@ class ViewModelFactory(
                         Injection.provideLoginRepository(context),
                         Injection.provideRegisterRepository(context),
                         Injection.provideUserRepository(context),
-                        Injection.provideDiseaseRepository()
+                        Injection.provideDiseaseRepository(),
+                        Injection.provideArticleDiseaseRepository()
                     )
                 }
             }
