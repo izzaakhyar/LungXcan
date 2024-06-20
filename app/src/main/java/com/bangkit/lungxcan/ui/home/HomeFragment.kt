@@ -4,14 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.ViewModelFactory
-import com.bangkit.lungxcan.data.DiseaseRequest
 import com.bangkit.lungxcan.data.ResultState
+import com.bangkit.lungxcan.data.request.DiseaseRequest
 import com.bangkit.lungxcan.data.response.ArticlesItem
 import com.bangkit.lungxcan.databinding.FragmentHomeBinding
 import com.bangkit.lungxcan.ui.article.ArticleViewModel
@@ -22,8 +24,6 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val list = ArrayList<DiseaseRequest>()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private val articleViewModel by viewModels<ArticleViewModel> {
@@ -41,7 +41,8 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val articleLayoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        val articleLayoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         val diseaseLayoutManager = GridLayoutManager(requireActivity(), 2)
         binding.rvArticle.layoutManager = articleLayoutManager
         binding.rvDisease.layoutManager = diseaseLayoutManager
@@ -52,6 +53,17 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        observeArticle()
+
+        binding.btnTryAgain.setOnClickListener {
+            observeArticle()
+        }
+
+        list.addAll(getListDisease())
+        setDiseaseData(list)
+    }
+
+    private fun observeArticle() {
         articleViewModel.article.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is ResultState.Loading -> {
@@ -65,32 +77,66 @@ class HomeFragment : Fragment() {
 
                 is ResultState.Error -> {
                     showLoading(false)
+                    showError(result.error)
+                    showErrorState()
                 }
             }
         }
 
         articleViewModel.getArticle()
+    }
 
-//        val histories = mutableListOf<DiseaseRequest>()
-//        for (i in 0..3) {
-//            //val data = DiseaseRequest(80, "Lung Cancer", "24 Juni 2024")
-//            histories.add(data)
-//        }
-//
-//        if (histories.isEmpty()) {
-//            binding.rvDisease.visibility = View.GONE
-//            binding.tvEmptyText.visibility = View.VISIBLE
-//        } else {
-//            val diseaseAdapter = DiseaseAdapter()
-//            diseaseAdapter.submitList(histories)
-//            binding.rvDisease.adapter = diseaseAdapter
-//        }
+    private fun showErrorState() {
+        binding.progressBar.visibility = View.GONE
+        binding.rvArticle.visibility = View.GONE
+        binding.btnTryAgain.visibility = View.VISIBLE
+    }
+
+    private fun showError(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     private fun setArticleData(result: List<ArticlesItem>) {
         val articleAdapter = ArticleHomeAdapter()
         articleAdapter.submitList(result)
         binding.rvArticle.adapter = articleAdapter
+    }
+
+    private fun setDiseaseData(data: ArrayList<DiseaseRequest>) {
+        val diseaseAdapter = DiseaseAdapter(list)
+        diseaseAdapter.submitList(list.take(4))
+        binding.rvDisease.adapter = diseaseAdapter
+    }
+
+    private fun getListDisease(): ArrayList<DiseaseRequest> {
+        val dataDiseaseNames = resources.getStringArray(R.array.disease_names)
+        val dataDiseasePictures = resources.getStringArray(R.array.disease_pictures)
+        val dataDiseaseAvailability = resources.getStringArray(R.array.disease_availability)
+        val dataDiseaseLinks = resources.getStringArray(R.array.disease_links)
+        val dataDiseaseDefinitions = resources.getStringArray(R.array.disease_definitions)
+        val dataDiseaseSymptoms = resources.getStringArray(R.array.disease_symptoms)
+        val dataDiseaseTreatments = resources.getStringArray(R.array.disease_treatments)
+        val dataDiseasePreventions = resources.getStringArray(R.array.disease_preventions)
+        val dataDiseaseIcons = resources.getStringArray(R.array.disease_icons)
+
+        val diseaseList = ArrayList<DiseaseRequest>()
+
+        for (i in dataDiseaseNames.indices) {
+            val disease = DiseaseRequest(
+                disease = dataDiseaseNames[i],
+                image = dataDiseasePictures[i],
+                availability = dataDiseaseAvailability[i],
+                linkRead = dataDiseaseLinks[i],
+                definition = dataDiseaseDefinitions[i],
+                symptom = dataDiseaseSymptoms[i],
+                treatment = dataDiseaseTreatments[i],
+                preventive = dataDiseasePreventions[i],
+                diseaseIcon = dataDiseaseIcons[i]
+            )
+            diseaseList.add(disease)
+        }
+
+        return diseaseList
     }
 
     private fun showLoading(isLoading: Boolean) {

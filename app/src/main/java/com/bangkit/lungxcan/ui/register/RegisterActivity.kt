@@ -8,7 +8,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.lungxcan.ViewModelFactory
 import com.bangkit.lungxcan.data.ResultState
-import com.bangkit.lungxcan.databinding.ActivityLoginBinding
 import com.bangkit.lungxcan.databinding.ActivityRegisterBinding
 import com.bangkit.lungxcan.ui.login.LoginActivity
 
@@ -37,14 +36,12 @@ class RegisterActivity : AppCompatActivity() {
             if (result != null) {
                 if (result is ResultState.Loading) showLoading(true)
                 if (result is ResultState.Success) {
-                    //result.data.message?.let {
-                        showAlert(
-                            "Success",
-                            "User created successfully",
-                            "Next",
-                            startActivity(Intent(this, LoginActivity::class.java))
-                        )
-                    //}
+                    showAlert(
+                        "Success",
+                        "User created successfully",
+                        "Next",
+                        startActivity(Intent(this, LoginActivity::class.java))
+                    )
                     showLoading(false)
                 } else if (result is ResultState.Error) {
                     showAlert("Error", result.error, "Try Again", closeOptionsMenu())
@@ -55,7 +52,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        //binding.progressIndicator.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     private fun showAlert(title: String, message: String, btnText: String, action: Unit) {

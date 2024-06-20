@@ -1,13 +1,12 @@
 package com.bangkit.lungxcan.ui.setting
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,7 +15,6 @@ import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.ViewModelFactory
 import com.bangkit.lungxcan.databinding.FragmentSettingBinding
 import com.bangkit.lungxcan.ui.login.LoginViewModel
-import com.google.android.material.textfield.MaterialAutoCompleteTextView
 
 class SettingFragment : Fragment() {
 
@@ -73,18 +71,13 @@ class SettingFragment : Fragment() {
             settingViewModel.saveThemeSetting(isChecked)
         }
 
-//        settingViewModel.languages.observe(viewLifecycleOwner) { items ->
-//            (binding.autoComplete as? MaterialAutoCompleteTextView)?.setSimpleItems(items)
-//        }
-
         binding.cardLogout.setOnClickListener {
             authViewModel.logout()
         }
 
-        //binding.tvtest.text = username
-
-//        print(token)
-//        print(username)
+        binding.cardLanguage.setOnClickListener {
+            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+        }
 
     }
 

@@ -4,15 +4,15 @@ import com.google.gson.annotations.SerializedName
 
 data class DiseaseDetailResponse(
 
-	@field:SerializedName("name")
-	val name: String,
+    @field:SerializedName("name")
+    val name: String,
 
-	@field:SerializedName("id_diseases")
-	val idDiseases: Int,
+    @field:SerializedName("id_diseases")
+    val idDiseases: Int,
 
-	@field:SerializedName("detail")
-	val detail: String,
+    @field:SerializedName("detail")
+    val detail: String,
 
-	@field:SerializedName("id_name")
-	val idName: Int
+    @field:SerializedName("id_name")
+    val idName: Int
 )

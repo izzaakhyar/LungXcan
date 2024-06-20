@@ -1,12 +1,11 @@
 package com.bangkit.lungxcan.data.di
 
 import android.content.Context
-import com.bangkit.lungxcan.data.api.ArticleDiseaseApiConfig
-import com.bangkit.lungxcan.data.api.AuthApiConfig
-import com.bangkit.lungxcan.data.api.DiseaseDetailApiConfig
-import com.bangkit.lungxcan.data.api.DiseaseDetailApiService
-import com.bangkit.lungxcan.data.api.MapApiConfig
-import com.bangkit.lungxcan.data.api.UserApiConfig
+import com.bangkit.lungxcan.data.api.articledisease.ArticleDiseaseApiConfig
+import com.bangkit.lungxcan.data.api.auth.AuthApiConfig
+import com.bangkit.lungxcan.data.api.diseasedetail.DiseaseDetailApiConfig
+import com.bangkit.lungxcan.data.api.map.MapApiConfig
+import com.bangkit.lungxcan.data.api.user.UserApiConfig
 import com.bangkit.lungxcan.data.pref.UserPreference
 import com.bangkit.lungxcan.data.pref.dataStore
 import com.bangkit.lungxcan.data.repository.ArticleDiseaseRepository

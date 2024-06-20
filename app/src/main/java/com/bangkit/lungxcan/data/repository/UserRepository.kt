@@ -1,10 +1,8 @@
 package com.bangkit.lungxcan.data.repository
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.liveData
 import com.bangkit.lungxcan.data.ResultState
-import com.bangkit.lungxcan.data.api.UserApiConfig
+import com.bangkit.lungxcan.data.api.user.UserApiConfig
 import com.bangkit.lungxcan.data.response.User
 import com.bangkit.lungxcan.data.response.UserResponse
 import retrofit2.Call
@@ -12,9 +10,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class UserRepository {
-
-//    private val _user = MutableLiveData<User>()
-//    val user: LiveData<User> = _user
 
     fun getUserInfo(token: String, user: MutableLiveData<User>) {
         ResultState.Loading

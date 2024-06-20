@@ -1,11 +1,11 @@
 package com.bangkit.lungxcan.data.repository
 
 import androidx.lifecycle.liveData
-import com.bangkit.lungxcan.data.LoginRequest
 import com.bangkit.lungxcan.data.ResultState
-import com.bangkit.lungxcan.data.api.AuthApiService
+import com.bangkit.lungxcan.data.api.auth.AuthApiService
 import com.bangkit.lungxcan.data.pref.UserModel
 import com.bangkit.lungxcan.data.pref.UserPreference
+import com.bangkit.lungxcan.data.request.LoginRequest
 import com.bangkit.lungxcan.data.response.LoginResponse
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
@@ -24,7 +24,6 @@ class LoginRepository private constructor(
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
-            //emit(errorResponse.?.let { ResultState.Error(it) })
         }
     }
 

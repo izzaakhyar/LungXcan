@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorSurface"
-    tools:context=".ui.disease.DiseaseDetailActivity">
+    tools:context=".ui.diseasedetail.DiseaseDetailActivity">
 
     <include
         android:id="@+id/app_bar"
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Scan Availability:"
+            android:text="@string/scan_availability"
             android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_disease_detail" />
@@ -74,7 +74,7 @@
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Click here to learn more"
+            android:text="@string/click_here_to_learn_more"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_scan_status" />
 
@@ -115,9 +115,9 @@
                 android:id="@+id/tv_detail_definition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="30dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="10dp"
+                android:paddingStart="30dp"
                 android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
                 tools:text="Bronchiectasis is a condition where the airways in the lungs become widened and stretched, forming pockets where germs, dust, and mucus can collect and lead to infections. This cycle of infection and damage to the airways perpetuates itself.
 
@@ -134,8 +134,8 @@ In adults, bronchiectasis often follows severe lung infections like pneumonia, t
                 android:id="@+id/tv_detail_symptom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
                 android:paddingStart="30dp"
                 android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
                 tools:text="- Sore throat\n- Runny nose\n- Headache\n- Cough" />
@@ -151,8 +151,8 @@ In adults, bronchiectasis often follows severe lung infections like pneumonia, t
                 android:id="@+id/tv_detail_treatment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
                 android:paddingStart="30dp"
                 android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
                 tools:text="Bronchiectasis is a condition where the airways in the lungs become widened and stretched, forming pockets where germs, dust, and mucus can collect and lead to infections. This cycle of infection and damage to the airways perpetuates itself.
@@ -170,8 +170,8 @@ In adults, bronchiectasis often follows severe lung infections like pneumonia, t
                 android:id="@+id/tv_detail_preventing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
                 android:paddingStart="30dp"
                 android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
                 tools:text="Bronchiectasis is a condition where the airways in the lungs become widened and stretched, forming pockets where germs, dust, and mucus can collect and lead to infections. This cycle of infection and damage to the airways perpetuates itself.

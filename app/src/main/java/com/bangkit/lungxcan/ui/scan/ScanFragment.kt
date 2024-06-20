@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -20,19 +19,12 @@ import androidx.lifecycle.lifecycleScope
 import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.databinding.FragmentScanBinding
 import com.bangkit.lungxcan.databinding.ResultBottomSheetBinding
-//import com.bangkit.lungxcan.helper.ImageClassificationHelper
 import com.bangkit.lungxcan.helper.ImageClassifierHelper
-import com.bangkit.lungxcan.ui.article.ArticleDiseaseFragment
-//import com.bangkit.lungxcan.helper.ImageClassifierHelper
-import com.bangkit.lungxcan.utils.getImageUri
 import com.bangkit.lungxcan.ui.result.ResultBottomSheet
+import com.bangkit.lungxcan.utils.getImageUri
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.tensorflow.lite.task.vision.classifier.Classifications
-//import org.tensorflow.lite.task.vision.classifier.Classifications
-import java.text.NumberFormat
-import kotlin.random.Random
 
 class ScanFragment : Fragment() {
 
@@ -171,7 +163,8 @@ class ScanFragment : Fragment() {
                         lifecycleScope.launch(Dispatchers.Main) {
                             results?.let {
                                 if (it.isNotEmpty() && it[0].categories.isNotEmpty()) {
-                                    val sortedCategories = it[0].categories.sortedByDescending { it.score }
+                                    val sortedCategories =
+                                        it[0].categories.sortedByDescending { it.score }
 
                                     val resultBottomSheet = ResultBottomSheet()
                                     val bundle = Bundle()
@@ -180,11 +173,13 @@ class ScanFragment : Fragment() {
                                     bundle.putString("disease", sortedCategories[0].label)
                                     bundle.putFloat("score", sortedCategories[0].score)
                                     resultBottomSheet.arguments = bundle
-                                    resultBottomSheet.show(childFragmentManager, ResultBottomSheet.TAG)
+                                    resultBottomSheet.show(
+                                        childFragmentManager,
+                                        ResultBottomSheet.TAG
+                                    )
                                 }
 
                             }
-                            // Hide the progress bar when the results are ready
                             binding.progressCircular.visibility = View.GONE
 
 
@@ -197,36 +192,6 @@ class ScanFragment : Fragment() {
                 helper.classifyStaticImage(uri)
             }
         }
-
-
-
-//        val helper = ImageClassifierHelper(
-//            context = requireContext(),
-//            classifierListener = object : ImageClassifierHelper.ClassifierListener {
-//                override fun onError(error: String) {
-//                    showToast(error)
-//                }
-//
-//                override fun onResults(results: List<Classifications>?) {
-//                    activity?.runOnUiThread {
-//                        results?.let { it ->
-//                            if (it.isNotEmpty() && it[0].categories.isNotEmpty()) {
-//                                println(it)
-//                                val sortedCategories =
-//                                    it[0].categories.sortedByDescending { it?.score }
-//                                val displayResult =
-//                                    "${
-//                                        NumberFormat.getPercentInstance()
-//                                            .format(sortedCategories[0].score).trim()
-//                                    } " + sortedCategories[0].label
-//                                //moveToResult(uri, displayResult)
-//                                println(displayResult)
-//                            }
-//                        }
-//                    }
-//                }
-//            })
-//        helper.classifyStaticImage(uri)
     }
 
 
@@ -240,6 +205,7 @@ class ScanFragment : Fragment() {
                         btnAnalyze.setTextColor(resources.getColor(R.color.colorOnPrimary))
                     }
                 }
+
                 Configuration.UI_MODE_NIGHT_NO -> {
                     binding.apply {
                         btnAnalyze.setBackgroundColor(resources.getColor(R.color.green))

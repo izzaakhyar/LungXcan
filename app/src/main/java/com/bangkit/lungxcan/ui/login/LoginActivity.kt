@@ -2,28 +2,16 @@ package com.bangkit.lungxcan.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.ViewModelProvider
 import com.bangkit.lungxcan.MainActivity
-import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.ViewModelFactory
 import com.bangkit.lungxcan.data.ResultState
 import com.bangkit.lungxcan.data.pref.UserModel
 import com.bangkit.lungxcan.databinding.ActivityLoginBinding
-import com.bangkit.lungxcan.ui.home.SplashScreen
 import com.bangkit.lungxcan.ui.register.RegisterActivity
-import com.bangkit.lungxcan.ui.setting.SettingPreferences
-import com.bangkit.lungxcan.ui.setting.SettingViewModel
-import com.bangkit.lungxcan.ui.setting.SettingViewModelFactory
-import com.bangkit.lungxcan.ui.setting.dataStore
 
 class LoginActivity : AppCompatActivity() {
 
@@ -94,6 +82,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        //binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }

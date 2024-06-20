@@ -8,13 +8,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.lungxcan.R
-import com.bangkit.lungxcan.data.DummyArticle
 import com.bangkit.lungxcan.data.response.ArticlesItem
 import com.bangkit.lungxcan.databinding.ItemArticleBinding
+import com.bangkit.lungxcan.ui.articledetail.ArticleDetailActivity
 import com.bangkit.lungxcan.utils.DateFormatter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import java.time.format.DateTimeFormatter
 
 class ArticleAdapter : ListAdapter<ArticlesItem, ArticleAdapter.ListViewHolder>(DIFF_CALLBACK) {
     class ListViewHolder(private val binding: ItemArticleBinding) :
@@ -29,7 +28,8 @@ class ArticleAdapter : ListAdapter<ArticlesItem, ArticleAdapter.ListViewHolder>(
                         .error(R.drawable.ic_error_24)
                 )
                 .into(binding.ivArticleThumbnail)
-            binding.tvArticleDate.text = articleItem.publishedAt?.let { DateFormatter.formatDate(it) }
+            binding.tvArticleDate.text =
+                articleItem.publishedAt?.let { DateFormatter.formatDate(it) }
         }
 
     }

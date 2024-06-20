@@ -1,10 +1,11 @@
 package com.bangkit.lungxcan.ui.article
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.lungxcan.R
@@ -22,15 +23,10 @@ class ArticleFragment : Fragment() {
         ViewModelFactory.getInstance(requireContext())
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         _binding = FragmentArticleBinding.inflate(inflater, container, false)
         binding.appBar.topAppBar.title = getString(R.string.title_article)
         val layoutManager = LinearLayoutManager(requireActivity())
@@ -41,6 +37,12 @@ class ArticleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        observeArticle()
+
+        binding.btnTryAgain.setOnClickListener { observeArticle() }
+    }
+
+    private fun observeArticle() {
         articleViewModel.article.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is ResultState.Loading -> {
@@ -54,11 +56,23 @@ class ArticleFragment : Fragment() {
 
                 is ResultState.Error -> {
                     showLoading(false)
+                    showError(result.error)
+                    showErrorState()
                 }
             }
         }
 
         articleViewModel.getArticle()
+    }
+
+    private fun showErrorState() {
+        binding.progressBar.visibility = View.GONE
+        binding.rvArticle.visibility = View.GONE
+        binding.btnTryAgain.visibility = View.VISIBLE
+    }
+
+    private fun showError(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     private fun setArticleData(result: List<ArticlesItem>) {
@@ -71,7 +85,5 @@ class ArticleFragment : Fragment() {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    companion object {
-
-    }
+    companion object
 }

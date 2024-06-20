@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.data.response.ArticlesItem
 import com.bangkit.lungxcan.databinding.ItemArticleHomeBinding
-import com.bangkit.lungxcan.ui.article.ArticleDetailActivity
-import com.bangkit.lungxcan.utils.DateFormatter
+import com.bangkit.lungxcan.ui.articledetail.ArticleDetailActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class ArticleHomeAdapter : ListAdapter<ArticlesItem, ArticleHomeAdapter.ListViewHolder>(DIFF_CALLBACK) {
+class ArticleHomeAdapter :
+    ListAdapter<ArticlesItem, ArticleHomeAdapter.ListViewHolder>(DIFF_CALLBACK) {
     class ListViewHolder(private val binding: ItemArticleHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(articleItem: ArticlesItem) {
@@ -32,7 +32,8 @@ class ArticleHomeAdapter : ListAdapter<ArticlesItem, ArticleHomeAdapter.ListView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val binding = ItemArticleHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemArticleHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(binding)
     }
 
