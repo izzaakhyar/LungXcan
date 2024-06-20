@@ -11,9 +11,6 @@ import retrofit2.Response
 
 class UserRepository {
 
-//    private val _user = MutableLiveData<User>()
-//    val user: LiveData<User> = _user
-
     fun getUserInfo(token: String, user: MutableLiveData<User>) {
         ResultState.Loading
         val client = UserApiConfig.getApiService(token).getProfile()

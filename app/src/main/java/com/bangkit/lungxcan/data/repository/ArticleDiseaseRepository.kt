@@ -13,21 +13,22 @@ import java.net.SocketTimeoutException
 
 class ArticleDiseaseRepository(private val apiService: ArticleDiseaseApiService) {
 
-    fun getArticleDiseaseDetail(disease: String): LiveData<ResultState<List<ArticleDiseaseResponseItem>>> = liveData {
-        emit(ResultState.Loading)
-        try {
-            val response = apiService.getDiseaseDetail(disease)
-            emit(ResultState.Success(response))
-        } catch (e: SocketTimeoutException) {
-            emit(ResultState.Error("Request timed out. Please try again."))
-        } catch (e: IOException) {
-            emit(ResultState.Error("Network error. Please check your internet connection."))
-        } catch (e: HttpException) {
-            val errorBody = e.response()?.errorBody()?.string()
-            val errorResponse = Gson().fromJson(errorBody, ArticleDiseaseResponse::class.java)
-            emit(ResultState.Error(e.message ?: "An unknown error occurred"))
+    fun getArticleDiseaseDetail(disease: String): LiveData<ResultState<List<ArticleDiseaseResponseItem>>> =
+        liveData {
+            emit(ResultState.Loading)
+            try {
+                val response = apiService.getDiseaseDetail(disease)
+                emit(ResultState.Success(response))
+            } catch (e: SocketTimeoutException) {
+                emit(ResultState.Error("Request timed out. Please try again."))
+            } catch (e: IOException) {
+                emit(ResultState.Error("Network error. Please check your internet connection."))
+            } catch (e: HttpException) {
+                val errorBody = e.response()?.errorBody()?.string()
+                val errorResponse = Gson().fromJson(errorBody, ArticleDiseaseResponse::class.java)
+                emit(ResultState.Error(e.message ?: "An unknown error occurred"))
+            }
         }
-    }
 
     companion object {
         @Volatile

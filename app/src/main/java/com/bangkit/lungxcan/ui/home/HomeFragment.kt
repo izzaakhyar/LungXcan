@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.ViewModelFactory
-import com.bangkit.lungxcan.data.request.DiseaseRequest
 import com.bangkit.lungxcan.data.ResultState
+import com.bangkit.lungxcan.data.request.DiseaseRequest
 import com.bangkit.lungxcan.data.response.ArticlesItem
 import com.bangkit.lungxcan.databinding.FragmentHomeBinding
 import com.bangkit.lungxcan.ui.article.ArticleViewModel
@@ -23,8 +23,6 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val list = ArrayList<DiseaseRequest>()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private val articleViewModel by viewModels<ArticleViewModel> {
@@ -42,7 +40,8 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val articleLayoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        val articleLayoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         val diseaseLayoutManager = GridLayoutManager(requireActivity(), 2)
         binding.rvArticle.layoutManager = articleLayoutManager
         binding.rvDisease.layoutManager = diseaseLayoutManager

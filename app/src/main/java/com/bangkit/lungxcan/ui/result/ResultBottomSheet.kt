@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.bangkit.lungxcan.R
 import com.bangkit.lungxcan.ViewModelFactory
-import com.bangkit.lungxcan.data.request.HospitalRequest
 import com.bangkit.lungxcan.data.ResultState
+import com.bangkit.lungxcan.data.request.HospitalRequest
 import com.bangkit.lungxcan.databinding.ResultBottomSheetBinding
-import com.bangkit.lungxcan.ui.result.articledisease.ArticleDiseaseFragment
 import com.bangkit.lungxcan.ui.article.ArticleViewModel
 import com.bangkit.lungxcan.ui.disease.DiseaseViewModel
+import com.bangkit.lungxcan.ui.result.articledisease.ArticleDiseaseFragment
 import com.bangkit.lungxcan.ui.result.hospital.HospitalViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -32,19 +32,10 @@ class ResultBottomSheet : BottomSheetDialogFragment() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
-    private val articleViewModel by viewModels<ArticleViewModel> {
-        ViewModelFactory.getInstance(requireContext())
-    }
-
-    private val hospitalViewModel by viewModels<HospitalViewModel> {
-        ViewModelFactory.getInstance(requireContext())
-    }
-
     private val diseaseViewModel by viewModels<DiseaseViewModel> {
         ViewModelFactory.getInstance(requireContext())
     }
 
-    private lateinit var hospitalData: HospitalRequest
     private var position = 0
     private var title = ""
 
@@ -90,17 +81,10 @@ class ResultBottomSheet : BottomSheetDialogFragment() {
             }
         }.attach()
 
-//        if (position == 1) {
-//            getLocation()
-//        } else {
-//            getLocation()
-//        }
-
         diseaseViewModel.getDiseaseDetail(id.toString()).observe(viewLifecycleOwner) { result ->
             when (result) {
                 is ResultState.Loading -> showLoading(true)
                 is ResultState.Success -> {
-                    //binding.tvResultDesc.text = result.data.detail
                     binding.info.setOnClickListener {
                         val builder = AlertDialog.Builder(requireContext())
                         val inflater = layoutInflater
@@ -114,23 +98,12 @@ class ResultBottomSheet : BottomSheetDialogFragment() {
                         dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_round)
                         dialog.show()
 
-//                        builder.setTitle("Info")
-//                        builder.setMessage(result.data.detail)
-//                        builder.setPositiveButton("OK", null)
-//                        builder.show()
                     }
-                    //binding.diseaseDescriptionTextView.text = disease.description
                     showLoading(false)
                 }
+
                 is ResultState.Error -> {
-//                    AlertDialog.Builder(this).apply {
-//                        setTitle("Error")
-//                        setMessage(result.error)
-//                        setPositiveButton("Retry") { _, _ -> }
-//                        create()
-//                        show()
-//                    }
-                    //showLoading(false)
+
                 }
             }
         }
@@ -153,106 +126,6 @@ class ResultBottomSheet : BottomSheetDialogFragment() {
             }
         }
     }
-
-//    private val requestPermissionLauncher =
-//        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
-//            when {
-//                permissions[Manifest.permission.ACCESS_FINE_LOCATION] ?: false -> {
-//                    Log.d(TAG, "Precise location access granted.")
-//                    getLocation()
-//                }
-//
-//                permissions[Manifest.permission.ACCESS_COARSE_LOCATION] ?: false -> {
-//                    Log.d(TAG, "Approximate location access granted.")
-//                    getLocation()
-//                }
-//
-//                else -> {
-//                    Log.d(TAG, "No location access granted.")
-//                }
-//            }
-//        }
-//
-//    private fun checkPermission(permission: String): Boolean {
-//        return ContextCompat.checkSelfPermission(
-//            requireActivity(),
-//            permission
-//        ) == PackageManager.PERMISSION_GRANTED
-//    }
-//
-//    private fun getLocation() {
-//        if (checkPermission(Manifest.permission.ACCESS_FINE_LOCATION) &&
-//            checkPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
-//        ) {
-//            fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
-//                location?.let {
-//                    val latLng = LatLng(location.latitude, location.longitude)
-//                    Log.d(TAG, "Location obtained: $latLng")
-//                    getNearbyHospitals(latLng)
-//                } ?: run {
-//                    Log.d(TAG, "Location is null")
-//                }
-//            }.addOnFailureListener { e ->
-//                Log.e(TAG, "Failed to get location", e)
-//            }
-//        } else {
-//            Log.d(TAG, "Requesting location permissions")
-//            requestPermissionLauncher.launch(
-//                arrayOf(
-//                    Manifest.permission.ACCESS_FINE_LOCATION,
-//                    Manifest.permission.ACCESS_COARSE_LOCATION
-//                )
-//            )
-//        }
-//    }
-//
-//    private fun getNearbyHospitals(latLng: LatLng) {
-//        Log.d(TAG, "Fetching nearby hospitals for location: $latLng")
-//        hospitalViewModel.getHospital("${latLng.latitude},${latLng.longitude}")
-//            .observe(viewLifecycleOwner) { result ->
-//                when (result) {
-//                    is ResultState.Loading -> {
-//                        Log.d(TAG, "Loading hospitals...")
-//                        showLoading(true)
-//                    }
-//
-//                    is ResultState.Success -> {
-//                        Log.d(TAG, "Hospitals loaded successfully")
-//                        showLoading(false)
-//                        val results = result.data.results
-//                        val hospitalRequest = mutableListOf<HospitalRequest>()
-//                        for (index in results) {
-//                            for (photo in index.photos) {
-//                                hospitalData = HospitalRequest(
-//                                    index.name,
-//                                    index.vicinity,
-//                                    photo.photoReference
-//                                )
-//                                hospitalRequest.add(hospitalData)
-//                            }
-//                            setHospitalData(hospitalRequest)
-//                        }
-//                    }
-//
-//                    is ResultState.Error -> {
-//                        Log.e(TAG, "Error loading hospitals: ${result.error}")
-//                        showLoading(false)
-//                    }
-//                }
-//            }
-//    }
-//
-//    private fun setArticleData(result: List<ArticlesItem>) {
-//        val articleAdapter = ArticleAdapter()
-//        articleAdapter.submitList(result)
-//        binding.rvRecommend.adapter = articleAdapter
-//    }
-//
-//    private fun setHospitalData(result: List<HospitalRequest>) {
-//        val hospitalAdapter = HospitalAdapter()
-//        hospitalAdapter.submitList(result)
-//        binding.rvRecommend.adapter = hospitalAdapter
-//    }
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE

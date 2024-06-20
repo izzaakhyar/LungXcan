@@ -1,8 +1,6 @@
 package com.bangkit.lungxcan.data.api.articledisease
 
-import com.bangkit.lungxcan.data.response.ArticleDiseaseResponse
 import com.bangkit.lungxcan.data.response.ArticleDiseaseResponseItem
-import com.bangkit.lungxcan.data.response.DiseaseDetailResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 

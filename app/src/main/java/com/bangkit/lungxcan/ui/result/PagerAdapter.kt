@@ -8,7 +8,8 @@ import com.bangkit.lungxcan.ui.result.articledisease.ArticleDiseaseFragment
 import com.bangkit.lungxcan.ui.result.hospital.HospitalFragment
 
 
-class PagerAdapter(fragment: FragmentActivity, private val disease: String) : FragmentStateAdapter(fragment) {
+class PagerAdapter(fragment: FragmentActivity, private val disease: String) :
+    FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int {
         return 2

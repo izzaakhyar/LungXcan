@@ -12,7 +12,13 @@ class MapRepository private constructor(private val mapApiService: MapApiService
     fun getHospital(location: String): LiveData<ResultState<MapResponse>> = liveData {
         emit(ResultState.Loading)
         try {
-            val response = mapApiService.getNearbyHospital(location, 50000, "Hospital", "Hospital||rumah sakit", BuildConfig.MAP_API_KEY)
+            val response = mapApiService.getNearbyHospital(
+                location,
+                50000,
+                "Hospital",
+                "Hospital||rumah sakit",
+                BuildConfig.MAP_API_KEY
+            )
             if (response.status == "OK") {
                 emit(ResultState.Success(response))
             } else {

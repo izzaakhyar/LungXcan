@@ -5,17 +5,17 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.lungxcan.ViewModelFactory
-import com.bangkit.lungxcan.data.request.HospitalRequest
 import com.bangkit.lungxcan.data.ResultState
+import com.bangkit.lungxcan.data.request.HospitalRequest
 import com.bangkit.lungxcan.databinding.FragmentHospitalBinding
 import com.bangkit.lungxcan.ui.result.ResultBottomSheet
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -34,10 +34,6 @@ class HospitalFragment : Fragment() {
     }
 
     private lateinit var hospitalData: HospitalRequest
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -155,7 +151,5 @@ class HospitalFragment : Fragment() {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    companion object {
-
-    }
+    companion object
 }

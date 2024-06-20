@@ -8,5 +8,6 @@ import com.bangkit.lungxcan.data.response.ArticleDiseaseResponseItem
 
 class ArticleDiseaseViewModel(private val repository: ArticleDiseaseRepository) : ViewModel() {
 
-    fun getArticleDiseaseDetail(disease: String): LiveData<ResultState<List<ArticleDiseaseResponseItem>>> = repository.getArticleDiseaseDetail(disease)
+    fun getArticleDiseaseDetail(disease: String): LiveData<ResultState<List<ArticleDiseaseResponseItem>>> =
+        repository.getArticleDiseaseDetail(disease)
 }

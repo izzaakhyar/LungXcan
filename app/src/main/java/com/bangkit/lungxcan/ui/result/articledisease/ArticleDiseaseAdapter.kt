@@ -9,9 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.lungxcan.data.response.ArticleDiseaseResponseItem
 import com.bangkit.lungxcan.databinding.ItemArticleDiseaseBinding
 
-class ArticleDiseaseAdapter : ListAdapter<ArticleDiseaseResponseItem, ArticleDiseaseAdapter.ListViewHolder>(
-    DIFF_CALLBACK
-) {
+class ArticleDiseaseAdapter :
+    ListAdapter<ArticleDiseaseResponseItem, ArticleDiseaseAdapter.ListViewHolder>(
+        DIFF_CALLBACK
+    ) {
 
     class ListViewHolder(private val binding: ItemArticleDiseaseBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -23,7 +24,8 @@ class ArticleDiseaseAdapter : ListAdapter<ArticleDiseaseResponseItem, ArticleDis
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val binding = ItemArticleDiseaseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemArticleDiseaseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(binding)
     }
 

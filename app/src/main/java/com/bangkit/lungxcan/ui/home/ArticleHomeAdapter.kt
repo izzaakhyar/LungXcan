@@ -14,7 +14,8 @@ import com.bangkit.lungxcan.ui.articledetail.ArticleDetailActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class ArticleHomeAdapter : ListAdapter<ArticlesItem, ArticleHomeAdapter.ListViewHolder>(DIFF_CALLBACK) {
+class ArticleHomeAdapter :
+    ListAdapter<ArticlesItem, ArticleHomeAdapter.ListViewHolder>(DIFF_CALLBACK) {
     class ListViewHolder(private val binding: ItemArticleHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(articleItem: ArticlesItem) {
@@ -31,7 +32,8 @@ class ArticleHomeAdapter : ListAdapter<ArticlesItem, ArticleHomeAdapter.ListView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val binding = ItemArticleHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemArticleHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(binding)
     }
 

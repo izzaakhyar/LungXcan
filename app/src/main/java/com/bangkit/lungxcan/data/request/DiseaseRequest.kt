@@ -14,4 +14,4 @@ data class DiseaseRequest(
     val treatment: String,
     val preventive: String,
     val diseaseIcon: String
-): Parcelable
+) : Parcelable

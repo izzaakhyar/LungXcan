@@ -9,7 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 object DiseaseDetailApiConfig {
 
     fun getDiseaseDetailApiService(): DiseaseDetailApiService {
-        val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        val loggingInterceptor =
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder().addInterceptor(loggingInterceptor).build()
         val retrofit = Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_CC_URL)

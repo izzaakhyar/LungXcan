@@ -28,16 +28,6 @@ class SplashScreen : AppCompatActivity() {
         val pref = SettingPreferences.getInstance(application.dataStore)
         val settingViewModel =
             ViewModelProvider(this, SettingViewModelFactory(pref))[SettingViewModel::class.java]
-//
-//        settingViewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
-//            Handler(Looper.getMainLooper()).postDelayed({
-//                val intent = Intent(this, MainActivity::class.java)
-//                intent.putExtra("isDarkModeActive", isDarkModeActive)
-//                startActivity(intent)
-//                finish()
-//
-//            }, SPLASH_DELAY_TIME)
-//        }
 
         settingViewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
             AppCompatDelegate.setDefaultNightMode(
@@ -45,7 +35,10 @@ class SplashScreen : AppCompatActivity() {
                 else AppCompatDelegate.MODE_NIGHT_NO
             )
 
-            val authViewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this))[LoginViewModel::class.java]
+            val authViewModel = ViewModelProvider(
+                this,
+                ViewModelFactory.getInstance(this)
+            )[LoginViewModel::class.java]
             authViewModel.getSession().observe(this) { user ->
                 val nextActivity = if (user.isLogin) {
                     MainActivity::class.java

@@ -11,11 +11,11 @@ import com.bangkit.lungxcan.data.repository.LoginRepository
 import com.bangkit.lungxcan.data.repository.MapRepository
 import com.bangkit.lungxcan.data.repository.RegisterRepository
 import com.bangkit.lungxcan.data.repository.UserRepository
-import com.bangkit.lungxcan.ui.result.articledisease.ArticleDiseaseViewModel
 import com.bangkit.lungxcan.ui.article.ArticleViewModel
 import com.bangkit.lungxcan.ui.disease.DiseaseViewModel
 import com.bangkit.lungxcan.ui.login.LoginViewModel
 import com.bangkit.lungxcan.ui.register.RegisterViewModel
+import com.bangkit.lungxcan.ui.result.articledisease.ArticleDiseaseViewModel
 import com.bangkit.lungxcan.ui.result.hospital.HospitalViewModel
 
 class ViewModelFactory(
@@ -34,18 +34,23 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(ArticleViewModel::class.java) -> {
                 ArticleViewModel(articleRepository) as T
             }
+
             modelClass.isAssignableFrom(HospitalViewModel::class.java) -> {
                 HospitalViewModel(mapRepository) as T
             }
+
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(loginRepository, userRepository) as T
             }
+
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(registerRepository) as T
             }
+
             modelClass.isAssignableFrom(DiseaseViewModel::class.java) -> {
                 DiseaseViewModel(diseaseRepository) as T
             }
+
             modelClass.isAssignableFrom(ArticleDiseaseViewModel::class.java) -> {
                 ArticleDiseaseViewModel(articleDiseaseRepository) as T
             }

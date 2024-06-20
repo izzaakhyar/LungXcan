@@ -28,7 +28,8 @@ class ArticleAdapter : ListAdapter<ArticlesItem, ArticleAdapter.ListViewHolder>(
                         .error(R.drawable.ic_error_24)
                 )
                 .into(binding.ivArticleThumbnail)
-            binding.tvArticleDate.text = articleItem.publishedAt?.let { DateFormatter.formatDate(it) }
+            binding.tvArticleDate.text =
+                articleItem.publishedAt?.let { DateFormatter.formatDate(it) }
         }
 
     }

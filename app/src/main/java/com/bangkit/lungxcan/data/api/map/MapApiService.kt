@@ -1,8 +1,6 @@
 package com.bangkit.lungxcan.data.api.map
 
 import com.bangkit.lungxcan.data.response.MapResponse
-import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
