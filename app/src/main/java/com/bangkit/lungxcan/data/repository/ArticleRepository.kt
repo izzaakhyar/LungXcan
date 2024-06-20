@@ -17,7 +17,7 @@ class ArticleRepository {
         data.value = ResultState.Loading
 
         val client =
-            ArticleApiConfig.getApiService().getLungHealthArticle("Lung health", "popularity")
+            ArticleApiConfig.getApiService().getLungHealthArticle()
         client.enqueue(object : Callback<ArticleResponse> {
             override fun onResponse(
                 call: Call<ArticleResponse>,

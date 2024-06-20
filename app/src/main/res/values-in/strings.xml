@@ -53,6 +53,7 @@ Potongan standar Lorem Ipsum yang digunakan sejak tahun 1500-an direproduksi di 
     <string name="change_language">Ubah Bahasa</string>
     <string name="enable_dark_mode">Aktifkan Mode Gelap</string>
     <string name="logout">Keluar</string>
+    <string name="no_article_found">Tidak ada artikel yang ditemukan untuk penyakit ini</string>
 
 
     <string-array name="disease_definitions">

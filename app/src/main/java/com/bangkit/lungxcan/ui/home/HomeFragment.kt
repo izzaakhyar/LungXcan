@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -52,6 +53,17 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        observeArticle()
+
+        binding.btnTryAgain.setOnClickListener {
+            observeArticle()
+        }
+
+        list.addAll(getListDisease())
+        setDiseaseData(list)
+    }
+
+    private fun observeArticle() {
         articleViewModel.article.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is ResultState.Loading -> {
@@ -65,23 +77,35 @@ class HomeFragment : Fragment() {
 
                 is ResultState.Error -> {
                     showLoading(false)
+                    showError(result.error)
+                    showErrorState()
                 }
             }
         }
 
         articleViewModel.getArticle()
+    }
 
-        list.addAll(getListDisease())
+    private fun showErrorState() {
+        binding.progressBar.visibility = View.GONE
+        binding.rvArticle.visibility = View.GONE
+        binding.btnTryAgain.visibility = View.VISIBLE
+    }
 
-        val diseaseAdapter = DiseaseAdapter(list)
-        diseaseAdapter.submitList(list.take(4))
-        binding.rvDisease.adapter = diseaseAdapter
+    private fun showError(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     private fun setArticleData(result: List<ArticlesItem>) {
         val articleAdapter = ArticleHomeAdapter()
         articleAdapter.submitList(result)
         binding.rvArticle.adapter = articleAdapter
+    }
+
+    private fun setDiseaseData(data: ArrayList<DiseaseRequest>) {
+        val diseaseAdapter = DiseaseAdapter(list)
+        diseaseAdapter.submitList(list.take(4))
+        binding.rvDisease.adapter = diseaseAdapter
     }
 
     private fun getListDisease(): ArrayList<DiseaseRequest> {

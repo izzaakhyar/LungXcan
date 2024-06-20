@@ -1,6 +1,7 @@
 package com.bangkit.lungxcan.ui.result.articledisease
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +40,15 @@ class ArticleDiseaseFragment : Fragment() {
         val disease = arguments?.getString(ARG_DISEASE)?.replace(" ", "_")
 
         if (disease != null) {
-            observeArticleDiseaseDetail(disease)
+            Log.d(TAG, disease)
+        }
+
+        if (disease != null) {
+            if (disease == "NORMAL") {
+                binding.tvEmpty.visibility = View.VISIBLE
+            } else {
+                observeArticleDiseaseDetail(disease)
+            }
         }
 
         binding.btnTryAgain.setOnClickListener {
@@ -93,6 +102,8 @@ class ArticleDiseaseFragment : Fragment() {
     }
 
     companion object {
+
+        const val TAG = "ArticleDiseaseFragmeny"
         private const val ARG_DISEASE = "disease"
 
         fun newInstance(disease: String): ArticleDiseaseFragment {

@@ -6,6 +6,8 @@ import com.bangkit.lungxcan.BuildConfig
 import com.bangkit.lungxcan.data.ResultState
 import com.bangkit.lungxcan.data.api.map.MapApiService
 import com.bangkit.lungxcan.data.response.MapResponse
+import java.io.IOException
+import java.net.SocketTimeoutException
 
 class MapRepository private constructor(private val mapApiService: MapApiService) {
 
@@ -24,6 +26,10 @@ class MapRepository private constructor(private val mapApiService: MapApiService
             } else {
                 emit(ResultState.Error("Failed to get nearby hospitals"))
             }
+        } catch (e: SocketTimeoutException) {
+            emit(ResultState.Error("Request timed out. Please try again."))
+        } catch (e: IOException) {
+            emit(ResultState.Error("Network error. Please check your internet connection."))
         } catch (e: Exception) {
             emit(ResultState.Error(e.message.toString()))
         }

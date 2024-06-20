@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -51,6 +52,8 @@ class HospitalFragment : Fragment() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 
         getLocation()
+
+        binding.btnTryAgain.setOnClickListener { getLocation() }
     }
 
     private val requestPermissionLauncher =
@@ -136,9 +139,21 @@ class HospitalFragment : Fragment() {
                     is ResultState.Error -> {
                         Log.e(ResultBottomSheet.TAG, "Error loading hospitals: ${result.error}")
                         showLoading(false)
+                        showError(result.error)
+                        showErrorState()
                     }
                 }
             }
+    }
+
+    private fun showErrorState() {
+        binding.progressBar.visibility = View.GONE
+        binding.rvHospital.visibility = View.GONE
+        binding.btnTryAgain.visibility = View.VISIBLE
+    }
+
+    private fun showError(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     private fun setHospitalData(result: List<HospitalRequest>) {
